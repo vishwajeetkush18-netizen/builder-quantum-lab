@@ -168,14 +168,14 @@ export default function Index() {
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Fever outbreak in Khanpur</p>
                 </div>
-                <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
+                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
               </div>
               
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Contaminated well</p>
                 </div>
-                <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium">Acknowledged</span>
+                <span className="glass text-green-600 text-xs px-2 py-1 rounded-full font-medium">Acknowledged</span>
               </div>
               
               <div className="flex items-start justify-between">
@@ -188,7 +188,7 @@ export default function Index() {
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Typhoid in Block C</p>
                 </div>
-                <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
+                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
               </div>
               
               <div className="flex items-start justify-between">
