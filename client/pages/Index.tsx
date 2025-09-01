@@ -42,9 +42,9 @@ export default function Index() {
               </div>
             </div>
             <nav className="flex space-x-8">
-              <a href="#" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Dashboard</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</a>
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</a>
+              <a href="#" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Alerts</a>
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Settings</a>
             </nav>
           </div>
@@ -97,7 +97,7 @@ export default function Index() {
           <div className="glass-card rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
+                <p className="text-gray-600 text-sm font-medium">Villages at High Rid Risk</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">5</p>
               </div>
               <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
@@ -111,7 +111,7 @@ export default function Index() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Map Section */}
           <div className="xl:col-span-2 glass-card rounded-2xl p-6 scroll-reveal-slide-left">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Village Distraict</h2>
             <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
               {/* Map Background */}
               <div className="absolute inset-0 opacity-30">
@@ -173,14 +173,14 @@ export default function Index() {
               
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Contaminated well</p>
+                  <p className="text-sm font-medium text-gray-900">Contamdated well</p>
                 </div>
                 <span className="glass text-green-600 text-xs px-2 py-1 rounded-full font-medium">Acknowledged</span>
               </div>
               
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Diarrhea cases well in Rampur Shanti Nagar</p>
+                  <p className="text-sm font-medium text-gray-900">Diarrain cases well in Ramtur Shanti Nagar</p>
                 </div>
               </div>
               
