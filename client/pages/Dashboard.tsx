@@ -186,7 +186,7 @@ export default function Dashboard() {
         </div>
 
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
           {/* Map Section */}
           <div className="xl:col-span-2 glass-card-bright rounded-2xl p-6 scroll-reveal-slide-left">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
