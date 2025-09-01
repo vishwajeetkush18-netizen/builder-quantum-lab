@@ -57,6 +57,17 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Health dashboard specific colors
+        'dashboard-bg': '#E8F4FD',
+        'dashboard-blue': '#3B82F6',
+        'dashboard-light-blue': '#DBEAFE',
+        'dashboard-card': '#FFFFFF',
+        'dashboard-text': '#1F2937',
+        'dashboard-text-light': '#6B7280',
+        'success': '#10B981',
+        'warning': '#F59E0B',
+        'danger': '#EF4444',
+        'info': '#3B82F6',
       },
       borderRadius: {
         lg: "var(--radius)",
