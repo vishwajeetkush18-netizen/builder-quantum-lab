@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Shield, Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
+import { Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import InteractiveLogo from "@/components/ui/interactive-logo";
 
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
@@ -71,15 +72,7 @@ export default function Dashboard() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
-              <button
-                onClick={() => handleIconClick('logo', 'home navigation')}
-                className={`w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer ${
-                  activeIcon === 'logo' ? 'scale-95' : ''
-                }`}
-                title="Go to Home"
-              >
-                <Shield className="w-6 h-6 text-white transition-transform duration-200 hover:rotate-12" />
-              </button>
+              <InteractiveLogo />
             </div>
             <nav className="flex space-x-8">
               <Link to="/dashboard" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Dashboard</Link>
