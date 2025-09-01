@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Shield, User, Users, Droplet, AlertTriangle, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { User, Users, Droplet, AlertTriangle, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import InteractiveLogo from "@/components/ui/interactive-logo";
 
 export default function Alerts() {
   const outbreakAlerts = [
@@ -40,13 +41,7 @@ export default function Alerts() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
-              <Link
-                to="/dashboard"
-                className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer"
-                title="Health Surveillance"
-              >
-                <Shield className="w-6 h-6 text-white transition-transform duration-200 hover:rotate-12" />
-              </Link>
+              <InteractiveLogo />
               <span className="text-lg font-semibold text-gray-900">Health Surveillance</span>
             </div>
             <nav className="flex space-x-8">
