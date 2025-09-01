@@ -2,6 +2,38 @@ import { Shield, Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-
 import { useEffect, useState } from "react";
 
 export default function Index() {
+  const [activeIcon, setActiveIcon] = useState<string | null>(null);
+
+  const handleIconClick = (iconName: string, action: string) => {
+    console.log(`${iconName} clicked - ${action}`);
+    setActiveIcon(iconName);
+
+    // Reset active state after animation
+    setTimeout(() => setActiveIcon(null), 200);
+
+    // Add your navigation or action logic here
+    switch (iconName) {
+      case 'logo':
+        console.log('Navigate to home');
+        break;
+      case 'profile':
+        console.log('Open user profile');
+        break;
+      case 'users':
+        console.log('Navigate to cases overview');
+        break;
+      case 'droplet':
+        console.log('Navigate to water testing results');
+        break;
+      case 'alert':
+        console.log('Navigate to alerts management');
+        break;
+      case 'trending':
+        console.log('Navigate to analytics dashboard');
+        break;
+    }
+  };
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
