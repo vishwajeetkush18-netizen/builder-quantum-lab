@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import InteractiveLogo from "@/components/ui/interactive-logo";
+import KPIStat from "@/components/ui/kpi-card";
 
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
@@ -73,6 +74,7 @@ export default function Dashboard() {
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
               <InteractiveLogo />
+              <span className="text-lg font-semibold text-gray-900">Health Surveillance</span>
             </div>
             <nav className="flex space-x-8">
               <Link to="/dashboard" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Dashboard</Link>
@@ -97,85 +99,38 @@ export default function Dashboard() {
       <main className="p-8 space-y-8">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-blue rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Total cases reported today</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">1,200</p>
-                <p className="text-green-500 text-xs font-medium mt-2">↗ +12.5% from yesterday</p>
-              </div>
-              <button
-                onClick={() => handleIconClick('users', 'cases overview')}
-                className={`w-14 h-14 accent-blue rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
-                  activeIcon === 'users' ? 'scale-95' : ''
-                }`}
-                title="View Cases Overview"
-              >
-                <Users className="w-7 h-7 text-white transition-all duration-200 hover:scale-125 hover:rotate-6" />
-              </button>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-green rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Water sources tested</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">350</p>
-                <p className="text-blue-500 text-xs font-medium mt-2">↗ +8.2% from last week</p>
-              </div>
-              <button
-                onClick={() => handleIconClick('droplet', 'water testing results')}
-                className={`w-14 h-14 accent-green rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
-                  activeIcon === 'droplet' ? 'scale-95' : ''
-                }`}
-                title="View Water Testing Results"
-              >
-                <Droplet className="w-7 h-7 text-white transition-all duration-200 hover:scale-125 hover:rotate-12" />
-              </button>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-orange rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Active alerts</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">15</p>
-                <p className="text-orange-500 text-xs font-medium mt-2">⚠ Requires attention</p>
-              </div>
-              <button
-                onClick={() => handleIconClick('alert', 'alerts management')}
-                className={`w-14 h-14 accent-orange rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
-                  activeIcon === 'alert' ? 'scale-95' : ''
-                }`}
-                title="Manage Active Alerts"
-              >
-                <AlertTriangle className="w-7 h-7 text-white transition-all duration-200 hover:scale-125 hover:rotate-12" />
-              </button>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-purple rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Villages at High Risk</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">5</p>
-                <p className="text-purple-500 text-xs font-medium mt-2">📊 Trending analysis</p>
-              </div>
-              <button
-                onClick={() => handleIconClick('trending', 'analytics dashboard')}
-                className={`w-14 h-14 accent-purple rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
-                  activeIcon === 'trending' ? 'scale-95' : ''
-                }`}
-                title="View Analytics Dashboard"
-              >
-                <TrendingUp className="w-7 h-7 text-gray-700 transition-all duration-200 hover:scale-125 hover:rotate-6" />
-              </button>
-            </div>
-          </div>
+          <KPIStat
+            label="Total cases reported today"
+            value={"1,200"}
+            icon={<Users className="w-7 h-7 text-white" />}
+            accent="blue"
+            deltaText="↗ +12.5% from yesterday"
+            deltaClassName="text-green-500"
+          />
+          <KPIStat
+            label="Water sources tested"
+            value={"350"}
+            icon={<Droplet className="w-7 h-7 text-white" />}
+            accent="green"
+            deltaText="↗ +8.2% from last week"
+            deltaClassName="text-blue-500"
+          />
+          <KPIStat
+            label="Active alerts"
+            value={"15"}
+            icon={<AlertTriangle className="w-7 h-7 text-white" />}
+            accent="orange"
+            deltaText="⚠ Requires attention"
+            deltaClassName="text-orange-500"
+          />
+          <KPIStat
+            label="Villages at High Risk"
+            value={"5"}
+            icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
+            accent="purple"
+            deltaText="📊 Trending analysis"
+            deltaClassName="text-purple-500"
+          />
         </div>
 
         {/* Main Dashboard Grid */}
