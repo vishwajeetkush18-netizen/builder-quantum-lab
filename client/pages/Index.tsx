@@ -80,10 +80,10 @@ export default function Index() {
               </button>
             </div>
             <nav className="flex space-x-8">
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</a>
-              <a href="#" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Alerts</a>
-              <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Settings</a>
+              <a href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</a>
+              <a href="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</a>
+              <a href="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</a>
+              <a href="/ai-risk" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">AI Risk</a>
             </nav>
           </div>
           <button
