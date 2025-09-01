@@ -164,20 +164,22 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
+          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-20 h-20 accent-purple rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
+            <div className="flex items-start justify-between relative z-10">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">5</p>
+                <p className="text-gray-500 text-sm font-medium mb-1">Villages at High Risk</p>
+                <p className="text-4xl font-bold text-gray-900 mt-3">5</p>
+                <p className="text-purple-500 text-xs font-medium mt-2">📊 Trending analysis</p>
               </div>
               <button
                 onClick={() => handleIconClick('trending', 'analytics dashboard')}
-                className={`w-12 h-12 glass-bright rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 border border-blue-200 ${
+                className={`w-14 h-14 accent-purple rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
                   activeIcon === 'trending' ? 'scale-95' : ''
                 }`}
                 title="View Analytics Dashboard"
               >
-                <TrendingUp className="w-6 h-6 text-blue-600 transition-all duration-200 hover:scale-125 hover:rotate-6" />
+                <TrendingUp className="w-7 h-7 text-gray-700 transition-all duration-200 hover:scale-125 hover:rotate-6" />
               </button>
             </div>
           </div>
