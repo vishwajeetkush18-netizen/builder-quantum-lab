@@ -61,14 +61,16 @@ export default function MobileNav() {
           </ul>
         </nav>
         <div className="mt-auto px-6 pb-6">
-          <Link
-            to="/login"
-            className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700"
-            aria-label="Login"
-          >
-            <LogIn className="h-5 w-5" />
-            Login
-          </Link>
+          <SheetClose asChild>
+            <Link
+              to="/login"
+              className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-4 py-2 font-medium text-white transition-colors hover:bg-blue-700"
+              aria-label="Login"
+            >
+              <LogIn className="h-5 w-5" />
+              Login
+            </Link>
+          </SheetClose>
         </div>
       </SheetContent>
     </Sheet>
