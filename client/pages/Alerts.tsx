@@ -53,8 +53,7 @@ export default function Alerts() {
               <Link to="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</Link>
               <Link to="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</Link>
               <span className="bg-green-400 text-white px-3 py-1 rounded-md font-medium">Alerts</span>
-              <Link to="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</Link>
-              <Link to="/settings" className="text-gray-600 hover:text-blue-600 transition-colors">Settings</Link>
+              <Link to="/ai-risk" className="text-gray-600 hover:text-blue-600 transition-colors">AI Risk</Link>
             </nav>
           </div>
           <Link
