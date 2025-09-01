@@ -30,7 +30,7 @@ export default function MobileNav() {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-80 p-0">
+      <SheetContent side="left" className="w-80 p-0 flex h-full flex-col">
         <div className="flex items-center gap-2 px-6 py-4 border-b">
           <InteractiveLogo />
           <span className="text-lg font-semibold text-gray-900">
