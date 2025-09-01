@@ -269,20 +269,16 @@ export default function Index() {
                 {/* Legend */}
                 <div className="absolute -right-32 top-0 space-y-3 text-sm">
                   <div className="flex items-center space-x-2">
+                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                    <span className="text-gray-600">Diarrial Typloid: 20%</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="text-gray-600">Malaria 15%</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     <span className="text-gray-600">Other 20%</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-600">Diarrhea 20%</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="text-gray-600">Typhoid 20%</span>
                   </div>
                 </div>
               </div>
