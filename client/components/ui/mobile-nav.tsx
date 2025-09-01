@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import InteractiveLogo from "@/components/ui/interactive-logo";
 import { Menu, LogIn } from "lucide-react";
