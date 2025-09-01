@@ -126,9 +126,15 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">350</p>
               </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <Droplet className="w-6 h-6 text-blue-600" />
-              </div>
+              <button
+                onClick={() => handleIconClick('droplet', 'water testing results')}
+                className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
+                  activeIcon === 'droplet' ? 'scale-95' : ''
+                }`}
+                title="View Water Testing Results"
+              >
+                <Droplet className="w-6 h-6 text-blue-600 transition-all duration-200 hover:scale-125 hover:rotate-12" />
+              </button>
             </div>
           </div>
 
