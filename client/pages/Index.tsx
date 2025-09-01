@@ -256,14 +256,12 @@ export default function Index() {
               <div className="relative">
                 <svg width="200" height="200" viewBox="0 0 200 200">
                   {/* Donut chart segments */}
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E" strokeWidth="25" 
-                          strokeDasharray="25 100" strokeDashoffset="0" transform="rotate(-90 100 100)" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6" strokeWidth="25" 
-                          strokeDasharray="25 100" strokeDashoffset="-25" transform="rotate(-90 100 100)" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B" strokeWidth="25" 
-                          strokeDasharray="25 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#EF4444" strokeWidth="25" 
-                          strokeDasharray="25 100" strokeDashoffset="-75" transform="rotate(-90 100 100)" />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B" strokeWidth="25"
+                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)" />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E" strokeWidth="25"
+                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6" strokeWidth="25"
+                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)" />
                 </svg>
                 
                 {/* Legend */}
