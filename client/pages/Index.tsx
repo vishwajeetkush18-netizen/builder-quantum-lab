@@ -144,9 +144,15 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Active alerts</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">15</p>
               </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-yellow-600" />
-              </div>
+              <button
+                onClick={() => handleIconClick('alert', 'alerts management')}
+                className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-yellow-50 ${
+                  activeIcon === 'alert' ? 'scale-95' : ''
+                }`}
+                title="Manage Active Alerts"
+              >
+                <AlertTriangle className="w-6 h-6 text-yellow-600 transition-all duration-200 hover:scale-125 hover:rotate-12" />
+              </button>
             </div>
           </div>
 
