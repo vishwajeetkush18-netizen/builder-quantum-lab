@@ -64,7 +64,7 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">1,200</p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
                 <Users className="w-6 h-6 text-blue-600" />
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">350</p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
                 <Droplet className="w-6 h-6 text-blue-600" />
               </div>
             </div>
@@ -88,7 +88,7 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Active alerts</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">15</p>
               </div>
-              <div className="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
                 <AlertTriangle className="w-6 h-6 text-yellow-600" />
               </div>
             </div>
@@ -100,7 +100,7 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">5</p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-blue-600" />
               </div>
             </div>
