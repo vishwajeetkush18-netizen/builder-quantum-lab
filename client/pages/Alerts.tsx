@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { User, Users, Droplet, AlertTriangle, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import InteractiveLogo from "@/components/ui/interactive-logo";
@@ -33,6 +34,9 @@ export default function Alerts() {
     { date: "", status: "Resolved", detail: "Contaminated Well" },
     { date: "", status: "Resolved", detail: "Fever Spike" },
   ];
+
+  const [selectedOutbreakRow, setSelectedOutbreakRow] = useState<number | null>(null);
+  const [selectedWaterRow, setSelectedWaterRow] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
@@ -132,13 +136,18 @@ export default function Alerts() {
                 </TableHeader>
                 <TableBody>
                   {outbreakAlerts.map((alert, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="font-medium">{alert.village}</TableCell>
-                      <TableCell>{alert.suspectedDisease}</TableCell>
-                      <TableCell className={alert.waterQuality === "Unsafe" ? "text-red-600 font-medium" : ""}>
-                        {alert.waterQuality}
+                    <TableRow
+                      key={index}
+                      className="group"
+                      data-state={selectedOutbreakRow === index ? "selected" : undefined}
+                      onClick={() => setSelectedOutbreakRow(index)}
+                    >
+                      <TableCell className="font-medium group-hover:font-semibold">{alert.village}</TableCell>
+                      <TableCell className="text-gray-700">{alert.suspectedDisease}</TableCell>
+                      <TableCell>
+                        <span className={`${alert.waterQuality === "Unsafe" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"} px-2 py-0.5 rounded-md text-xs font-medium`}>{alert.waterQuality}</span>
                       </TableCell>
-                      <TableCell>{alert.date}</TableCell>
+                      <TableCell className="text-gray-500">{alert.date}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -171,12 +180,19 @@ export default function Alerts() {
                   </TableHeader>
                   <TableBody>
                     {waterQualityData.map((item, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{item.village}</TableCell>
+                      <TableRow
+                        key={index}
+                        className="group"
+                        data-state={selectedWaterRow === index ? "selected" : undefined}
+                        onClick={() => setSelectedWaterRow(index)}
+                      >
+                        <TableCell className="font-medium group-hover:font-semibold">{item.village}</TableCell>
                         <TableCell>{item.age}</TableCell>
                         <TableCell>{item.no}</TableCell>
-                        <TableCell>{item.waterQuality}</TableCell>
-                        <TableCell>{item.date}</TableCell>
+                        <TableCell>
+                          <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium">{item.waterQuality}</span>
+                        </TableCell>
+                        <TableCell className="text-gray-500">{item.date}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
