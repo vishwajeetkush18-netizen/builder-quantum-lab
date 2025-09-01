@@ -7,6 +7,7 @@ import SiteFooter from "@/components/ui/site-footer";
 
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
+  const [activeSegment, setActiveSegment] = useState<'yellow' | 'green' | 'blue' | null>(null);
 
   const handleIconClick = (iconName: string, action: string) => {
     console.log(`${iconName} clicked - ${action}`);
@@ -289,32 +290,38 @@ export default function Dashboard() {
           {/* Disease Distribution Chart */}
           <div className="glass-card-bright rounded-2xl p-6 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Disease Distribution</h2>
-            <div className="h-64 flex items-center justify-center">
-              <div className="relative">
-                <svg width="200" height="200" viewBox="0 0 200 200">
+            <div className="md:h-64">
+              <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
+                <svg width="220" height="220" viewBox="0 0 200 200" className="shrink-0">
                   {/* Donut chart segments */}
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E" strokeWidth="25"
-                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B"
+                          strokeWidth={activeSegment==='yellow'?28:25}
+                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)"
+                          style={{opacity: activeSegment && activeSegment!=='yellow' ? 0.35 : 0.9, transition:'opacity .2s, stroke-width .2s'}} />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E"
+                          strokeWidth={activeSegment==='green'?28:25}
+                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)"
+                          style={{opacity: activeSegment && activeSegment!=='green' ? 0.35 : 0.9, transition:'opacity .2s, stroke-width .2s'}} />
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6"
+                          strokeWidth={activeSegment==='blue'?28:25}
+                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)"
+                          style={{opacity: activeSegment && activeSegment!=='blue' ? 0.35 : 0.9, transition:'opacity .2s, stroke-width .2s'}} />
+                  <text x="100" y="105" textAnchor="middle" className="fill-gray-700 text-sm">Cases</text>
                 </svg>
-                
-                {/* Legend */}
-                <div className="absolute -right-32 top-0 space-y-3 text-sm">
-                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-600">Diarrheal Typhoid 20%</span>
-                  </div>
-                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-600">Malaria 15%</span>
-                  </div>
-                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-600">Other 20%</span>
-                  </div>
+                {/* Legend - non-overlapping */}
+                <div className="mt-6 md:mt-0 grid grid-cols-1 gap-3 text-sm w-full">
+                  <button type="button" onMouseEnter={()=>setActiveSegment('yellow')} onMouseLeave={()=>setActiveSegment(null)} className="flex items-center justify-between p-2 rounded-lg hover:bg-yellow-50/60 transition-colors">
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-yellow-500"></span><span className="text-gray-700">Diarrheal Typhoid</span></span>
+                    <span className="text-gray-500">20%</span>
+                  </button>
+                  <button type="button" onMouseEnter={()=>setActiveSegment('green')} onMouseLeave={()=>setActiveSegment(null)} className="flex items-center justify-between p-2 rounded-lg hover:bg-emerald-50/60 transition-colors">
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-green-500"></span><span className="text-gray-700">Malaria</span></span>
+                    <span className="text-gray-500">15%</span>
+                  </button>
+                  <button type="button" onMouseEnter={()=>setActiveSegment('blue')} onMouseLeave={()=>setActiveSegment(null)} className="flex items-center justify-between p-2 rounded-lg hover:bg-blue-50/60 transition-colors">
+                    <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-blue-500"></span><span className="text-gray-700">Other</span></span>
+                    <span className="text-gray-500">20%</span>
+                  </button>
                 </div>
               </div>
             </div>
