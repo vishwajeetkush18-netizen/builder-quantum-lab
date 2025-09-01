@@ -258,7 +258,7 @@ export default function Dashboard() {
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Typhoid in Block C</p>
                 </div>
-                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
+                <span className="glass-bright text-blue-600 text-xs px-2 py-1 rounded-full font-medium border border-blue-200">Pending</span>
               </div>
               
               <div className="flex items-start justify-between">
