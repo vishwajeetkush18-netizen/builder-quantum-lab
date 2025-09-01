@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { AlertTriangle, Droplet, LineChart, Shield, TrendingUp, User } from "lucide-react";
+import { AlertTriangle, Droplet, LineChart, TrendingUp } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import KPIStat from "@/components/ui/kpi-card";
 import SiteFooter from "@/components/ui/site-footer";
+import SiteHeader from "@/components/ui/site-header";
 
 export default function AIRisk() {
   const aiRiskRows = [
@@ -17,35 +18,7 @@ export default function AIRisk() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
       {/* Header */}
-      <header className="glass-header-bright px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <div className="flex items-center space-x-2">
-              <Link
-                to="/dashboard"
-                className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg"
-                title="Health Surveillance"
-              >
-                <Shield className="w-6 h-6 text-white transition-transform duration-200 hover:rotate-12" />
-              </Link>
-              <span className="text-lg font-semibold text-gray-900">Health Surveillance</span>
-            </div>
-            <nav className="flex space-x-8">
-              <Link to="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</Link>
-              <Link to="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</Link>
-              <Link to="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</Link>
-              <span className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">AI Risk</span>
-            </nav>
-          </div>
-          <Link
-            to="/profile"
-            className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg"
-            title="User Profile"
-          >
-            <User className="w-6 h-6 text-white transition-transform duration-200 hover:scale-110" />
-          </Link>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Main */}
       <main className="p-8 space-y-8">
