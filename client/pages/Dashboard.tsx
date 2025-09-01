@@ -104,20 +104,22 @@ export default function Dashboard() {
       <main className="p-8 space-y-8">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
+          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-20 h-20 accent-blue rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
+            <div className="flex items-start justify-between relative z-10">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">1,200</p>
+                <p className="text-gray-500 text-sm font-medium mb-1">Total cases reported today</p>
+                <p className="text-4xl font-bold text-gray-900 mt-3">1,200</p>
+                <p className="text-green-500 text-xs font-medium mt-2">↗ +12.5% from yesterday</p>
               </div>
               <button
                 onClick={() => handleIconClick('users', 'cases overview')}
-                className={`w-12 h-12 glass-bright rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 border border-blue-200 ${
+                className={`w-14 h-14 accent-blue rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg cursor-pointer ${
                   activeIcon === 'users' ? 'scale-95' : ''
                 }`}
                 title="View Cases Overview"
               >
-                <Users className="w-6 h-6 text-blue-600 transition-all duration-200 hover:scale-125 hover:rotate-6" />
+                <Users className="w-7 h-7 text-white transition-all duration-200 hover:scale-125 hover:rotate-6" />
               </button>
             </div>
           </div>
