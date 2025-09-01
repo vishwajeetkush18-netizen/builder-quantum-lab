@@ -130,7 +130,7 @@ export default function Dashboard() {
               </div>
               <button
                 onClick={() => handleIconClick('droplet', 'water testing results')}
-                className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
+                className={`w-12 h-12 glass-bright rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 border border-blue-200 ${
                   activeIcon === 'droplet' ? 'scale-95' : ''
                 }`}
                 title="View Water Testing Results"
