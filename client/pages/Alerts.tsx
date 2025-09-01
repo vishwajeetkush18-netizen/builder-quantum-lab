@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import InteractiveLogo from "@/components/ui/interactive-logo";
+import KPIStat from "@/components/ui/kpi-card";
+import SiteFooter from "@/components/ui/site-footer";
 
 export default function Alerts() {
   const outbreakAlerts = [
@@ -68,54 +70,11 @@ export default function Alerts() {
       {/* Main Content */}
       <main className="p-6 space-y-6">
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">3,2000</p>
-              </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <Users className="w-6 h-6 text-blue-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">350</p>
-              </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <Droplet className="w-6 h-6 text-blue-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-gray-600 text-sm font-medium">Active alerts</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">15</p>
-              </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <AlertTriangle className="w-6 h-6 text-yellow-600" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
-                <p className="text-3xl font-bold text-gray-900 mt-2">8</p>
-              </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          <KPIStat label="Total cases reported today" value={"3,2000"} icon={<Users className="w-7 h-7 text-white" />} accent="blue" />
+          <KPIStat label="Water sources tested" value={"350"} icon={<Droplet className="w-7 h-7 text-white" />} accent="green" />
+          <KPIStat label="Active alerts" value={"15"} icon={<AlertTriangle className="w-7 h-7 text-white" />} accent="orange" />
+          <KPIStat label="Villages at High Risk" value={"8"} icon={<TrendingUp className="w-7 h-7 text-gray-700" />} accent="purple" />
         </div>
 
         {/* Main Content Grid */}
@@ -247,6 +206,7 @@ export default function Alerts() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
