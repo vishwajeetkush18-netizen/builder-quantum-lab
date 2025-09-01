@@ -110,7 +110,7 @@ export default function Index() {
         {/* Main Dashboard Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Map Section */}
-          <div className="xl:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-slide-left">
+          <div className="xl:col-span-2 glass-card rounded-2xl p-6 scroll-reveal-slide-left">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
             <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
               {/* Map Background */}
