@@ -3,6 +3,7 @@ import { Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import InteractiveLogo from "@/components/ui/interactive-logo";
 import KPIStat from "@/components/ui/kpi-card";
+import SiteFooter from "@/components/ui/site-footer";
 
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
@@ -310,6 +311,7 @@ export default function Dashboard() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
