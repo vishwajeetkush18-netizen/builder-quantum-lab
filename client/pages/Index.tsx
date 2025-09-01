@@ -1,5 +1,5 @@
 import { Shield, Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Index() {
   useEffect(() => {
