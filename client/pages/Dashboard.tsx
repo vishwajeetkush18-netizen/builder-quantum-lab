@@ -182,7 +182,7 @@ export default function Dashboard() {
           {/* Map Section */}
           <div className="xl:col-span-2 glass-card-bright rounded-2xl p-6 scroll-reveal-slide-left">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
-            <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
+            <div className="relative h-80 bg-gradient-to-br from-white to-gray-100 rounded-xl overflow-hidden border border-gray-200">
               {/* Map Background */}
               <div className="absolute inset-0 opacity-30">
                 <svg viewBox="0 0 400 300" className="w-full h-full">
