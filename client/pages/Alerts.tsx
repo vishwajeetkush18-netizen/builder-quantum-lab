@@ -35,9 +35,9 @@ export default function Alerts() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-teal-100">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
       {/* Header */}
-      <header className="glass-header px-6 py-4">
+      <header className="glass-header-bright px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ export default function Alerts() {
             <nav className="flex space-x-8">
               <Link to="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</Link>
               <Link to="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</Link>
-              <span className="bg-green-400 text-white px-3 py-1 rounded-md font-medium">Alerts</span>
+              <Link to="/alerts" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Alerts</Link>
               <Link to="/ai-risk" className="text-gray-600 hover:text-blue-600 transition-colors">AI Risk</Link>
             </nav>
           </div>
@@ -117,7 +117,7 @@ export default function Alerts() {
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-4 gap-6">
           {/* Outbreak Alerts Table */}
-          <div className="xl:col-span-3 glass-card rounded-2xl p-6">
+          <div className="xl:col-span-3 glass-card-bright rounded-2xl p-6 scroll-reveal">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Outbreak Alerts</h2>
             
             <div className="overflow-x-auto mb-6">
@@ -202,7 +202,7 @@ export default function Alerts() {
           </div>
 
           {/* Alert History Sidebar */}
-          <div className="glass-card rounded-2xl p-6">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Alert History</h2>
             
             <div className="space-y-3">
