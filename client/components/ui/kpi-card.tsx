@@ -23,7 +23,7 @@ interface KPIStatProps {
 export function KPIStat({ label, value, icon, accent = "blue", deltaText, deltaClassName, className }: KPIStatProps) {
   return (
     <div className={cn("glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden", className)}>
-      <div className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-10 transform translate-x-6 -translate-y-6", />
+      <div className={cn("absolute top-0 right-0 w-20 h-20 rounded-full opacity-10 transform translate-x-6 -translate-y-6", accentClass[accent])}></div>
       <div className="flex items-start justify-between relative z-10">
         <div>
           <p className="text-gray-500 text-sm font-medium mb-1">{label}</p>
