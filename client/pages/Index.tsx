@@ -31,9 +31,9 @@ export default function Index() {
     };
   }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-teal-100">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-blue-100/50 px-6 py-4">
+      <header className="glass-header px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
