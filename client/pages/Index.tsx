@@ -250,7 +250,7 @@ export default function Index() {
           </div>
 
           {/* Disease Distribution Chart */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-scale">
+          <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Disease Distribution</h2>
             <div className="h-64 flex items-center justify-center">
               <div className="relative">
