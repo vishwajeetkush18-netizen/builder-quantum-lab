@@ -9,11 +9,16 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle login logic here
     console.log("Login attempt:", { username, password });
+
+    // For demo purposes, navigate to dashboard on any login attempt
+    // In a real app, you'd validate credentials first
+    navigate("/dashboard");
   };
 
   return (
