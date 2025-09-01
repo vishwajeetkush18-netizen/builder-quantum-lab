@@ -31,6 +31,7 @@ export default function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-80 p-0 flex h-full flex-col">
+        <SheetTitle className="sr-only">Main navigation</SheetTitle>
         <div className="flex items-center gap-2 px-6 py-4 border-b">
           <InteractiveLogo />
           <span className="text-lg font-semibold text-gray-900">
