@@ -239,7 +239,7 @@ export default function Dashboard() {
           </div>
 
           {/* Recent Alerts */}
-          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal-slide-right">
+          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal-slide-right">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
             <div className="space-y-4">
               <div className="flex items-start justify-between">
