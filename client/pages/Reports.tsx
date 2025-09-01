@@ -6,11 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import InteractiveLogo from "@/components/ui/interactive-logo";
+import { useState } from "react";
 
 export default function Reports() {
   const [selectedDisease, setSelectedDisease] = useState("");
   const [selectedVillage, setSelectedVillage] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [selected, setSelected] = useState<{ health?: number; water?: number } | null>(null);
 
   const healthReports = [
     { patientId: "Eoype", age: 75, io: 85, symptoms: "70.00", date: "500%" },
@@ -170,12 +172,21 @@ export default function Reports() {
                   </TableHeader>
                   <TableBody>
                     {waterTestReports.map((report, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{report.sourceLocation}</TableCell>
-                        <TableCell>{report.turbidity}</TableCell>
+                      <TableRow
+                        key={index}
+                        className="group"
+                        data-state={selected?.water === index ? "selected" : undefined}
+                        onClick={() => setSelected((s) => ({ ...(s || {}), water: index }))}
+                      >
+                        <TableCell className="font-medium group-hover:font-semibold">{report.sourceLocation}</TableCell>
+                        <TableCell>
+                          <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.turbidity}</span>
+                        </TableCell>
                         <TableCell>{report.ph}</TableCell>
-                        <TableCell>{report.tubritate}</TableCell>
-                        <TableCell>{report.date}</TableCell>
+                        <TableCell>
+                          <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.tubritate}</span>
+                        </TableCell>
+                        <TableCell className="text-gray-500">{report.date}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
