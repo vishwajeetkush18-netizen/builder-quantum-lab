@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
 import { useEffect, useState } from "react";
-import InteractiveLogo from "@/components/ui/interactive-logo";
 import KPIStat from "@/components/ui/kpi-card";
 import SiteFooter from "@/components/ui/site-footer";
+import SiteHeader from "@/components/ui/site-header";
 
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
@@ -71,31 +71,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
       {/* Header */}
-      <header className="glass-header-bright px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-8">
-            <div className="flex items-center space-x-2">
-              <InteractiveLogo />
-              <span className="text-lg font-semibold text-gray-900">Health Surveillance</span>
-            </div>
-            <nav className="flex space-x-8">
-              <Link to="/dashboard" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Dashboard</Link>
-              <Link to="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</Link>
-              <Link to="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</Link>
-              <Link to="/ai-risk" className="text-gray-600 hover:text-blue-600 transition-colors">AI Risk</Link>
-            </nav>
-          </div>
-          <button
-            onClick={() => handleIconClick('profile', 'user profile')}
-            className={`w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer ${
-              activeIcon === 'profile' ? 'scale-95' : ''
-            }`}
-            title="User Profile"
-          >
-            <User className="w-6 h-6 text-white transition-transform duration-200 hover:scale-110" />
-          </button>
-        </div>
-      </header>
+      <SiteHeader />
 
       {/* Main Content */}
       <main className="p-8 space-y-8">
