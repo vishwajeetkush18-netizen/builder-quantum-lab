@@ -43,16 +43,18 @@ export default function MobileNav() {
               const active = pathname === item.to;
               return (
                 <li key={item.to}>
-                  <Link
-                    to={item.to}
-                    className={`block rounded-md px-4 py-3 text-base font-medium transition-colors ${
-                      active
-                        ? "bg-blue-50 text-blue-700"
-                        : "text-gray-700 hover:bg-gray-100"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
+                  <SheetClose asChild>
+                    <Link
+                      to={item.to}
+                      className={`block rounded-md px-4 py-3 text-base font-medium transition-colors ${
+                        active
+                          ? "bg-blue-50 text-blue-700"
+                          : "text-gray-700 hover:bg-gray-100"
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  </SheetClose>
                 </li>
               );
             })}
