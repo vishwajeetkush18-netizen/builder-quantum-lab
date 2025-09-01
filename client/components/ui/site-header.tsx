@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import InteractiveLogo from "@/components/ui/interactive-logo";
 import { User } from "lucide-react";
+import MobileNav from "@/components/ui/mobile-nav";
 
 function NavLink({ to, label }: { to: string; label: string }) {
   const { pathname } = useLocation();
@@ -24,7 +25,7 @@ function NavLink({ to, label }: { to: string; label: string }) {
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 glass-header-bright px-6 py-4">
+    <header className="sticky top-0 z-50 glass-header-bright px-4 py-3 sm:px-6 sm:py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <InteractiveLogo />
@@ -32,19 +33,22 @@ export default function SiteHeader() {
             Health Surveillance
           </span>
         </div>
-        <nav className="flex-1 flex items-center justify-center space-x-8">
+        <nav className="hidden sm:flex flex-1 items-center justify-center space-x-8">
           <NavLink to="/dashboard" label="Dashboard" />
           <NavLink to="/reports" label="Reports" />
           <NavLink to="/alerts" label="Alerts" />
           <NavLink to="/ai-risk" label="AI Risk" />
         </nav>
-        <Link
-          to="/login"
-          className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-blue-700 hover:scale-110 hover:shadow-lg ring-2 ring-transparent hover:ring-blue-200"
-          title="Login"
-        >
-          <User className="w-6 h-6 text-white transition-transform duration-200 group-hover:scale-110" />
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/login"
+            className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-blue-700 hover:scale-110 hover:shadow-lg ring-2 ring-transparent hover:ring-blue-200"
+            title="Login"
+          >
+            <User className="w-6 h-6 text-white transition-transform duration-200 group-hover:scale-110" />
+          </Link>
+          <MobileNav />
+        </div>
       </div>
     </header>
   );
