@@ -220,7 +220,7 @@ export default function Dashboard() {
                 <div className="absolute top-68 left-36 w-3 h-3 bg-red-500"></div>
 
                 {/* Tooltip */}
-                <div className="absolute top-40 left-48 glass rounded-lg p-3 text-sm z-10">
+                <div className="absolute top-40 left-48 glass-bright rounded-lg p-3 text-sm z-10 border border-gray-200">
                   <div className="font-semibold text-gray-900">Village: Pendor</div>
                   <div className="text-gray-600">Cases: 85</div>
                   <div className="text-gray-600">Water Results: Safe</div>
