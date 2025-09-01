@@ -101,9 +101,9 @@ export default function Dashboard() {
       </header>
 
       {/* Main Content */}
-      <main className="p-6 space-y-6">
+      <main className="p-8 space-y-8">
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
