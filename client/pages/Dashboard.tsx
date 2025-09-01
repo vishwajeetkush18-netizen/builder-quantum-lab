@@ -104,7 +104,7 @@ export default function Dashboard() {
       <main className="p-6 space-y-6">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
