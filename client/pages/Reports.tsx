@@ -35,9 +35,9 @@ export default function Reports() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-50 to-teal-100">
+    <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
       {/* Header */}
-      <header className="glass-header px-6 py-4">
+      <header className="glass-header-bright px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
@@ -65,7 +65,7 @@ export default function Reports() {
       <main className="p-6 space-y-6">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
@@ -77,7 +77,7 @@ export default function Reports() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
@@ -89,7 +89,7 @@ export default function Reports() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Active alerts</p>
@@ -101,7 +101,7 @@ export default function Reports() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
