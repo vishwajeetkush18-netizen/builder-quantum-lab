@@ -108,9 +108,15 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">1,200</p>
               </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <Users className="w-6 h-6 text-blue-600" />
-              </div>
+              <button
+                onClick={() => handleIconClick('users', 'cases overview')}
+                className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
+                  activeIcon === 'users' ? 'scale-95' : ''
+                }`}
+                title="View Cases Overview"
+              >
+                <Users className="w-6 h-6 text-blue-600 transition-all duration-200 hover:scale-125 hover:rotate-6" />
+              </button>
             </div>
           </div>
 
