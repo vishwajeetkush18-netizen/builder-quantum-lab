@@ -134,12 +134,19 @@ export default function Reports() {
                   </TableHeader>
                   <TableBody>
                     {healthReports.map((report, index) => (
-                      <TableRow key={index}>
-                        <TableCell className="font-medium">{report.patientId}</TableCell>
+                      <TableRow
+                        key={index}
+                        className="group"
+                        data-state={(selected as any)?.health === index ? "selected" : undefined}
+                        onClick={() => setSelected((s:any) => ({ ...(s||{}), health: index }))}
+                      >
+                        <TableCell className="font-medium group-hover:font-semibold">{report.patientId}</TableCell>
                         <TableCell>{report.age}</TableCell>
                         <TableCell>{report.io}</TableCell>
-                        <TableCell>{report.symptoms}</TableCell>
-                        <TableCell>{report.date}</TableCell>
+                        <TableCell>
+                          <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.symptoms}</span>
+                        </TableCell>
+                        <TableCell className="text-gray-500">{report.date}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
