@@ -1,6 +1,33 @@
 import { Shield, Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
+import { useEffect } from "react";
 
 export default function Index() {
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all scroll-reveal elements
+    const elements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale');
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+
+    return () => {
+      elements.forEach(element => {
+        observer.unobserve(element);
+      });
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
       {/* Header */}
