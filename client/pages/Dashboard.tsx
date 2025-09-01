@@ -245,7 +245,7 @@ export default function Dashboard() {
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Contaminated well</p>
                 </div>
-                <span className="glass text-green-600 text-xs px-2 py-1 rounded-full font-medium">Acknowledged</span>
+                <span className="glass-bright text-green-600 text-xs px-2 py-1 rounded-full font-medium border border-green-200">Acknowledged</span>
               </div>
               
               <div className="flex items-start justify-between">
