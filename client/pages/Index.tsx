@@ -56,7 +56,7 @@ export default function Index() {
       <main className="p-6 space-y-6">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
@@ -68,7 +68,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
@@ -80,7 +80,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Active alerts</p>
@@ -92,7 +92,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
@@ -108,7 +108,7 @@ export default function Index() {
         {/* Main Dashboard Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Map Section */}
-          <div className="xl:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="xl:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-slide-left">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
             <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
               {/* Map Background */}
@@ -159,7 +159,7 @@ export default function Index() {
           </div>
 
           {/* Recent Alerts */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-slide-right">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
             <div className="space-y-4">
               <div className="flex items-start justify-between">
@@ -201,7 +201,7 @@ export default function Index() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Cases Chart */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Cases in last 7 days</h2>
             <div className="h-64 relative">
               <svg viewBox="0 0 300 200" className="w-full h-full">
@@ -248,7 +248,7 @@ export default function Index() {
           </div>
 
           {/* Disease Distribution Chart */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50">
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Disease Distribution</h2>
             <div className="h-64 flex items-center justify-center">
               <div className="relative">
