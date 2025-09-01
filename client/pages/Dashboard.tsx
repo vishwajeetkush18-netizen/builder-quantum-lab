@@ -85,7 +85,7 @@ export default function Dashboard() {
               <Link to="/dashboard" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">Dashboard</Link>
               <Link to="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</Link>
               <Link to="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</Link>
-              <Link to="/settings" className="text-gray-600 hover:text-blue-600 transition-colors">Settings</Link>
+              <Link to="/ai-risk" className="text-gray-600 hover:text-blue-600 transition-colors">AI Risk</Link>
             </nav>
           </div>
           <button
