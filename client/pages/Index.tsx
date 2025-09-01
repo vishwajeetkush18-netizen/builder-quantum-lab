@@ -162,9 +162,15 @@ export default function Index() {
                 <p className="text-gray-600 text-sm font-medium">Villages at High Rid Risk</p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">5</p>
               </div>
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-blue-600" />
-              </div>
+              <button
+                onClick={() => handleIconClick('trending', 'analytics dashboard')}
+                className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
+                  activeIcon === 'trending' ? 'scale-95' : ''
+                }`}
+                title="View Analytics Dashboard"
+              >
+                <TrendingUp className="w-6 h-6 text-blue-600 transition-all duration-200 hover:scale-125 hover:rotate-6" />
+              </button>
             </div>
           </div>
         </div>
