@@ -69,9 +69,15 @@ export default function Index() {
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
+              <button
+                onClick={() => handleIconClick('logo', 'home navigation')}
+                className={`w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer ${
+                  activeIcon === 'logo' ? 'scale-95' : ''
+                }`}
+                title="Go to Home"
+              >
+                <Shield className="w-6 h-6 text-white transition-transform duration-200 hover:rotate-12" />
+              </button>
             </div>
             <nav className="flex space-x-8">
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</a>
