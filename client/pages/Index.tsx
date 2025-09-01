@@ -1,4 +1,11 @@
-import { Shield, Users, Droplet, AlertTriangle, TrendingUp, User } from "lucide-react";
+import {
+  Shield,
+  Users,
+  Droplet,
+  AlertTriangle,
+  TrendingUp,
+  User,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Index() {
@@ -13,23 +20,23 @@ export default function Index() {
 
     // Add your navigation or action logic here
     switch (iconName) {
-      case 'logo':
-        console.log('Navigate to home');
+      case "logo":
+        console.log("Navigate to home");
         break;
-      case 'profile':
-        console.log('Open user profile');
+      case "profile":
+        console.log("Open user profile");
         break;
-      case 'users':
-        console.log('Navigate to cases overview');
+      case "users":
+        console.log("Navigate to cases overview");
         break;
-      case 'droplet':
-        console.log('Navigate to water testing results');
+      case "droplet":
+        console.log("Navigate to water testing results");
         break;
-      case 'alert':
-        console.log('Navigate to alerts management');
+      case "alert":
+        console.log("Navigate to alerts management");
         break;
-      case 'trending':
-        console.log('Navigate to analytics dashboard');
+      case "trending":
+        console.log("Navigate to analytics dashboard");
         break;
     }
   };
@@ -37,27 +44,29 @@ export default function Index() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
+          entry.target.classList.add("is-visible");
         } else {
-          entry.target.classList.remove('is-visible');
+          entry.target.classList.remove("is-visible");
         }
       });
     }, observerOptions);
 
     // Observe all scroll-reveal elements
-    const elements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale');
-    elements.forEach(element => {
+    const elements = document.querySelectorAll(
+      ".scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale",
+    );
+    elements.forEach((element) => {
       observer.observe(element);
     });
 
     return () => {
-      elements.forEach(element => {
+      elements.forEach((element) => {
         observer.unobserve(element);
       });
     };
@@ -77,21 +86,47 @@ export default function Index() {
                 <span className="absolute inset-0 rounded-lg bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 opacity-80 group-hover:opacity-100 transition-opacity" />
                 <span className="absolute -inset-1 rounded-lg blur-md bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 opacity-30 group-hover:opacity-60 transition-opacity" />
                 <span className="relative z-10 grid place-items-center w-full h-full text-white">
-                  <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l7 4v6c0 5-3.6 9.4-7 10-3.4-.6-7-5-7-10V6l7-4z"/></svg>
+                  <svg
+                    className="w-6 h-6"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M12 2l7 4v6c0 5-3.6 9.4-7 10-3.4-.6-7-5-7-10V6l7-4z" />
+                  </svg>
                 </span>
               </a>
             </div>
             <nav className="flex space-x-8">
-              <a href="/dashboard" className="text-gray-600 hover:text-blue-600 transition-colors">Dashboard</a>
-              <a href="/reports" className="text-gray-600 hover:text-blue-600 transition-colors">Reports</a>
-              <a href="/alerts" className="text-gray-600 hover:text-blue-600 transition-colors">Alerts</a>
-              <a href="/ai-risk" className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1">AI Risk</a>
+              <a
+                href="/dashboard"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Dashboard
+              </a>
+              <a
+                href="/reports"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Reports
+              </a>
+              <a
+                href="/alerts"
+                className="text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                Alerts
+              </a>
+              <a
+                href="/ai-risk"
+                className="text-blue-600 font-medium border-b-2 border-blue-600 pb-1"
+              >
+                AI Risk
+              </a>
             </nav>
           </div>
           <button
-            onClick={() => handleIconClick('profile', 'user profile')}
+            onClick={() => handleIconClick("profile", "user profile")}
             className={`w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer ${
-              activeIcon === 'profile' ? 'scale-95' : ''
+              activeIcon === "profile" ? "scale-95" : ""
             }`}
             title="User Profile"
           >
@@ -107,13 +142,15 @@ export default function Index() {
           <div className="glass-card rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Total cases reported today</p>
+                <p className="text-gray-600 text-sm font-medium">
+                  Total cases reported today
+                </p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">1,200</p>
               </div>
               <button
-                onClick={() => handleIconClick('users', 'cases overview')}
+                onClick={() => handleIconClick("users", "cases overview")}
                 className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
-                  activeIcon === 'users' ? 'scale-95' : ''
+                  activeIcon === "users" ? "scale-95" : ""
                 }`}
                 title="View Cases Overview"
               >
@@ -125,13 +162,17 @@ export default function Index() {
           <div className="glass-card rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
+                <p className="text-gray-600 text-sm font-medium">
+                  Water sources tested
+                </p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">350</p>
               </div>
               <button
-                onClick={() => handleIconClick('droplet', 'water testing results')}
+                onClick={() =>
+                  handleIconClick("droplet", "water testing results")
+                }
                 className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
-                  activeIcon === 'droplet' ? 'scale-95' : ''
+                  activeIcon === "droplet" ? "scale-95" : ""
                 }`}
                 title="View Water Testing Results"
               >
@@ -143,13 +184,15 @@ export default function Index() {
           <div className="glass-card rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Active alerts</p>
+                <p className="text-gray-600 text-sm font-medium">
+                  Active alerts
+                </p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">15</p>
               </div>
               <button
-                onClick={() => handleIconClick('alert', 'alerts management')}
+                onClick={() => handleIconClick("alert", "alerts management")}
                 className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-yellow-50 ${
-                  activeIcon === 'alert' ? 'scale-95' : ''
+                  activeIcon === "alert" ? "scale-95" : ""
                 }`}
                 title="Manage Active Alerts"
               >
@@ -161,13 +204,17 @@ export default function Index() {
           <div className="glass-card rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-gray-600 text-sm font-medium">Villages at High Rid Risk</p>
+                <p className="text-gray-600 text-sm font-medium">
+                  Villages at High Rid Risk
+                </p>
                 <p className="text-3xl font-bold text-gray-900 mt-2">5</p>
               </div>
               <button
-                onClick={() => handleIconClick('trending', 'analytics dashboard')}
+                onClick={() =>
+                  handleIconClick("trending", "analytics dashboard")
+                }
                 className={`w-12 h-12 glass rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110 hover:shadow-lg cursor-pointer hover:bg-blue-50 ${
-                  activeIcon === 'trending' ? 'scale-95' : ''
+                  activeIcon === "trending" ? "scale-95" : ""
                 }`}
                 title="View Analytics Dashboard"
               >
@@ -181,16 +228,26 @@ export default function Index() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Map Section */}
           <div className="xl:col-span-2 glass-card rounded-2xl p-6 scroll-reveal-slide-left">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Village Distraict</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Village Distraict
+            </h2>
             <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
               {/* Map Background */}
               <div className="absolute inset-0 opacity-30">
                 <svg viewBox="0 0 400 300" className="w-full h-full">
-                  <path d="M50 50 Q150 30 250 50 Q350 70 350 150 Q320 250 200 280 Q80 250 50 150 Z" fill="#93C5FD" opacity="0.3" />
-                  <path d="M100 80 Q180 60 280 90 Q320 120 300 200 Q250 240 150 230 Q100 200 100 120 Z" fill="#34D399" opacity="0.2" />
+                  <path
+                    d="M50 50 Q150 30 250 50 Q350 70 350 150 Q320 250 200 280 Q80 250 50 150 Z"
+                    fill="#93C5FD"
+                    opacity="0.3"
+                  />
+                  <path
+                    d="M100 80 Q180 60 280 90 Q320 120 300 200 Q250 240 150 230 Q100 200 100 120 Z"
+                    fill="#34D399"
+                    opacity="0.2"
+                  />
                 </svg>
               </div>
-              
+
               {/* Map Markers */}
               <div className="absolute inset-0 p-4">
                 {/* Green circles - safe areas */}
@@ -221,10 +278,14 @@ export default function Index() {
 
                 {/* Tooltip */}
                 <div className="absolute top-40 left-48 glass rounded-lg p-3 text-sm z-10">
-                  <div className="font-semibold text-gray-900">Village: Pendor</div>
+                  <div className="font-semibold text-gray-900">
+                    Village: Pendor
+                  </div>
                   <div className="text-gray-600">Cases: 85</div>
                   <div className="text-gray-600">Water Results: Safe</div>
-                  <div className="text-gray-600">Alerts: 2 (Malaria outbreak)</div>
+                  <div className="text-gray-600">
+                    Alerts: 2 (Malaria outbreak)
+                  </div>
                 </div>
               </div>
             </div>
@@ -232,38 +293,56 @@ export default function Index() {
 
           {/* Recent Alerts */}
           <div className="glass-card rounded-2xl p-6 scroll-reveal-slide-right">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Recent Alerts
+            </h2>
             <div className="space-y-4">
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Fever outbreak in Khanpur</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    Fever outbreak in Khanpur
+                  </p>
                 </div>
-                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
+                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">
+                  Pending
+                </span>
               </div>
-              
+
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Contamdated well</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    Contamdated well
+                  </p>
                 </div>
-                <span className="glass text-green-600 text-xs px-2 py-1 rounded-full font-medium">Acknowledged</span>
+                <span className="glass text-green-600 text-xs px-2 py-1 rounded-full font-medium">
+                  Acknowledged
+                </span>
               </div>
-              
+
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Diarrain cases well in Ramtur Shanti Nagar</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    Diarrain cases well in Ramtur Shanti Nagar
+                  </p>
                 </div>
               </div>
-              
+
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">Typhoid in Block C</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    Typhoid in Block C
+                  </p>
                 </div>
-                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">Pending</span>
+                <span className="glass text-blue-600 text-xs px-2 py-1 rounded-full font-medium">
+                  Pending
+                </span>
               </div>
-              
+
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">New vector-borne illness</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    New vector-borne illness
+                  </p>
                 </div>
               </div>
             </div>
@@ -274,66 +353,227 @@ export default function Index() {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Cases Chart */}
           <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Cases in last 7 days</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Cases in last 7 days
+            </h2>
             <div className="h-64 relative">
               <svg viewBox="0 0 300 200" className="w-full h-full">
                 {/* Grid lines */}
                 <defs>
-                  <pattern id="grid" width="30" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 30 0 L 0 0 0 20" fill="none" stroke="#E5E7EB" strokeWidth="0.5"/>
+                  <pattern
+                    id="grid"
+                    width="30"
+                    height="20"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <path
+                      d="M 30 0 L 0 0 0 20"
+                      fill="none"
+                      stroke="#E5E7EB"
+                      strokeWidth="0.5"
+                    />
                   </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />
-                
+
                 {/* Area chart */}
-                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60 L 280 180 Z" 
-                      fill="url(#areaGradient)" />
-                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60" 
-                      fill="none" stroke="#3B82F6" strokeWidth="2" />
-                
+                <path
+                  d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60 L 280 180 Z"
+                  fill="url(#areaGradient)"
+                />
+                <path
+                  d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60"
+                  fill="none"
+                  stroke="#3B82F6"
+                  strokeWidth="2"
+                />
+
                 {/* Gradient definition */}
                 <defs>
-                  <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3"/>
-                    <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.05"/>
+                  <linearGradient
+                    id="areaGradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="0%"
+                    y2="100%"
+                  >
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
+                    <stop
+                      offset="100%"
+                      stopColor="#3B82F6"
+                      stopOpacity="0.05"
+                    />
                   </linearGradient>
                 </defs>
-                
+
                 {/* Y-axis labels */}
-                <text x="15" y="25" fontSize="10" fill="#6B7280" textAnchor="end">1200</text>
-                <text x="15" y="45" fontSize="10" fill="#6B7280" textAnchor="end">1000</text>
-                <text x="15" y="85" fontSize="10" fill="#6B7280" textAnchor="end">600</text>
-                <text x="15" y="125" fontSize="10" fill="#6B7280" textAnchor="end">400</text>
-                <text x="15" y="165" fontSize="10" fill="#6B7280" textAnchor="end">200</text>
-                <text x="15" y="185" fontSize="10" fill="#6B7280" textAnchor="end">0</text>
-                
+                <text
+                  x="15"
+                  y="25"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  1200
+                </text>
+                <text
+                  x="15"
+                  y="45"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  1000
+                </text>
+                <text
+                  x="15"
+                  y="85"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  600
+                </text>
+                <text
+                  x="15"
+                  y="125"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  400
+                </text>
+                <text
+                  x="15"
+                  y="165"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  200
+                </text>
+                <text
+                  x="15"
+                  y="185"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="end"
+                >
+                  0
+                </text>
+
                 {/* X-axis labels */}
-                <text x="50" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Mon</text>
-                <text x="80" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Tue</text>
-                <text x="110" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Wed</text>
-                <text x="140" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Thu</text>
-                <text x="170" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Fri</text>
-                <text x="200" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Sat</text>
-                <text x="230" y="195" fontSize="10" fill="#6B7280" textAnchor="middle">Sun</text>
+                <text
+                  x="50"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Mon
+                </text>
+                <text
+                  x="80"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Tue
+                </text>
+                <text
+                  x="110"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Wed
+                </text>
+                <text
+                  x="140"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Thu
+                </text>
+                <text
+                  x="170"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Fri
+                </text>
+                <text
+                  x="200"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Sat
+                </text>
+                <text
+                  x="230"
+                  y="195"
+                  fontSize="10"
+                  fill="#6B7280"
+                  textAnchor="middle"
+                >
+                  Sun
+                </text>
               </svg>
             </div>
           </div>
 
           {/* Disease Distribution Chart */}
           <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">Disease Distribution</h2>
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+              Disease Distribution
+            </h2>
             <div className="h-64 flex items-center justify-center">
               <div className="relative">
                 <svg width="200" height="200" viewBox="0 0 200 200">
                   {/* Donut chart segments */}
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E" strokeWidth="25"
-                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" />
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)" />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="#F59E0B"
+                    strokeWidth="25"
+                    strokeDasharray="50 100"
+                    strokeDashoffset="0"
+                    transform="rotate(-90 100 100)"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="#22C55E"
+                    strokeWidth="25"
+                    strokeDasharray="37.5 100"
+                    strokeDashoffset="-50"
+                    transform="rotate(-90 100 100)"
+                  />
+                  <circle
+                    cx="100"
+                    cy="100"
+                    r="80"
+                    fill="none"
+                    stroke="#3B82F6"
+                    strokeWidth="25"
+                    strokeDasharray="50 100"
+                    strokeDashoffset="-87.5"
+                    transform="rotate(-90 100 100)"
+                  />
                 </svg>
-                
+
                 {/* Legend */}
                 <div className="absolute -right-32 top-0 space-y-3 text-sm">
                   <div className="flex items-center space-x-2">

@@ -35,7 +35,7 @@ const RoutesWithObserver = () => {
 
     const observeAll = () => {
       const elements = document.querySelectorAll(
-        ".scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale"
+        ".scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale",
       );
       elements.forEach((el) => observer.observe(el));
     };

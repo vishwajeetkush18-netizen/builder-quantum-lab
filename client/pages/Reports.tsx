@@ -1,10 +1,31 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { User, Users, Droplet, AlertTriangle, TrendingUp, CloudUpload, Filter } from "lucide-react";
+import {
+  User,
+  Users,
+  Droplet,
+  AlertTriangle,
+  TrendingUp,
+  CloudUpload,
+  Filter,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import KPIStat from "@/components/ui/kpi-card";
 import SiteFooter from "@/components/ui/site-footer";
 import SiteHeader from "@/components/ui/site-header";
@@ -13,7 +34,10 @@ export default function Reports() {
   const [selectedDisease, setSelectedDisease] = useState("");
   const [selectedVillage, setSelectedVillage] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [selected, setSelected] = useState<{ health?: number; water?: number } | null>(null);
+  const [selected, setSelected] = useState<{
+    health?: number;
+    water?: number;
+  } | null>(null);
 
   const healthReports = [
     { patientId: "Eoype", age: 75, io: 85, symptoms: "70.00", date: "500%" },
@@ -25,16 +49,76 @@ export default function Reports() {
   ];
 
   const waterTestReports = [
-    { sourceLocation: "Sourcel", turbidity: 15.000, ph: 60, tubritate: "Contamination Flag", date: "200%" },
-    { sourceLocation: "pH", turbidity: 15.000, ph: 7, tubritate: "102200%", date: "200%" },
-    { sourceLocation: "Typsoid", turbidity: 15.000, ph: 5, tubritate: "30000%", date: "600%" },
-    { sourceLocation: "Tyh", turbidity: 15.000, ph: 5, tubritate: "50220%", date: "100%" },
-    { sourceLocation: "Malaria", turbidity: 15.000, ph: 56, tubritate: "60020%", date: "100%" },
-    { sourceLocation: "Tns", turbidity: 15.000, ph: 50, tubritate: "50220%", date: "200%" },
-    { sourceLocation: "Malaria", turbidity: 25.000, ph: 45, tubritate: "50000%", date: "200%" },
-    { sourceLocation: "Thy", turbidity: 26.000, ph: 10, tubritate: "50000%", date: "200%" },
-    { sourceLocation: "Other", turbidity: 45.000, ph: 101, tubritate: "60020%", date: "400%" },
-    { sourceLocation: "Other", turbidity: 49.000, ph: 71, tubritate: "50220%", date: "200%" },
+    {
+      sourceLocation: "Sourcel",
+      turbidity: 15.0,
+      ph: 60,
+      tubritate: "Contamination Flag",
+      date: "200%",
+    },
+    {
+      sourceLocation: "pH",
+      turbidity: 15.0,
+      ph: 7,
+      tubritate: "102200%",
+      date: "200%",
+    },
+    {
+      sourceLocation: "Typsoid",
+      turbidity: 15.0,
+      ph: 5,
+      tubritate: "30000%",
+      date: "600%",
+    },
+    {
+      sourceLocation: "Tyh",
+      turbidity: 15.0,
+      ph: 5,
+      tubritate: "50220%",
+      date: "100%",
+    },
+    {
+      sourceLocation: "Malaria",
+      turbidity: 15.0,
+      ph: 56,
+      tubritate: "60020%",
+      date: "100%",
+    },
+    {
+      sourceLocation: "Tns",
+      turbidity: 15.0,
+      ph: 50,
+      tubritate: "50220%",
+      date: "200%",
+    },
+    {
+      sourceLocation: "Malaria",
+      turbidity: 25.0,
+      ph: 45,
+      tubritate: "50000%",
+      date: "200%",
+    },
+    {
+      sourceLocation: "Thy",
+      turbidity: 26.0,
+      ph: 10,
+      tubritate: "50000%",
+      date: "200%",
+    },
+    {
+      sourceLocation: "Other",
+      turbidity: 45.0,
+      ph: 101,
+      tubritate: "60020%",
+      date: "400%",
+    },
+    {
+      sourceLocation: "Other",
+      turbidity: 49.0,
+      ph: 71,
+      tubritate: "50220%",
+      date: "200%",
+    },
   ];
 
   return (
@@ -46,10 +130,30 @@ export default function Reports() {
       <main className="p-6 space-y-6">
         {/* KPI Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <KPIStat label="Total cases reported today" value={"2,5000"} icon={<Users className="w-7 h-7 text-white" />} accent="blue" />
-          <KPIStat label="Water sources tested" value={"350"} icon={<Droplet className="w-7 h-7 text-white" />} accent="green" />
-          <KPIStat label="Active alerts" value={"15"} icon={<AlertTriangle className="w-7 h-7 text-white" />} accent="orange" />
-          <KPIStat label="Villages at High Risk" value={"6"} icon={<TrendingUp className="w-7 h-7 text-gray-700" />} accent="purple" />
+          <KPIStat
+            label="Total cases reported today"
+            value={"2,5000"}
+            icon={<Users className="w-7 h-7 text-white" />}
+            accent="blue"
+          />
+          <KPIStat
+            label="Water sources tested"
+            value={"350"}
+            icon={<Droplet className="w-7 h-7 text-white" />}
+            accent="green"
+          />
+          <KPIStat
+            label="Active alerts"
+            value={"15"}
+            icon={<AlertTriangle className="w-7 h-7 text-white" />}
+            accent="orange"
+          />
+          <KPIStat
+            label="Villages at High Risk"
+            value={"6"}
+            icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
+            accent="purple"
+          />
         </div>
 
         {/* Reports Section */}
@@ -58,7 +162,9 @@ export default function Reports() {
           <div className="xl:col-span-3 space-y-6">
             {/* Health Reports */}
             <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Health Reports</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                Health Reports
+              </h2>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -75,16 +181,31 @@ export default function Reports() {
                       <TableRow
                         key={index}
                         className="group"
-                        data-state={(selected as any)?.health === index ? "selected" : undefined}
-                        onClick={() => setSelected((s:any) => ({ ...(s||{}), health: index }))}
+                        data-state={
+                          (selected as any)?.health === index
+                            ? "selected"
+                            : undefined
+                        }
+                        onClick={() =>
+                          setSelected((s: any) => ({
+                            ...(s || {}),
+                            health: index,
+                          }))
+                        }
                       >
-                        <TableCell className="font-medium group-hover:font-semibold">{report.patientId}</TableCell>
+                        <TableCell className="font-medium group-hover:font-semibold">
+                          {report.patientId}
+                        </TableCell>
                         <TableCell>{report.age}</TableCell>
                         <TableCell>{report.io}</TableCell>
                         <TableCell>
-                          <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.symptoms}</span>
+                          <span className="bg-purple-100 text-purple-700 px-2 py-0.5 rounded-md text-xs font-medium">
+                            {report.symptoms}
+                          </span>
                         </TableCell>
-                        <TableCell className="text-gray-500">{report.date}</TableCell>
+                        <TableCell className="text-gray-500">
+                          {report.date}
+                        </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -94,7 +215,9 @@ export default function Reports() {
 
             {/* Water Test Reports */}
             <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Water Test Reports</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                Water Test Reports
+              </h2>
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
@@ -111,18 +234,30 @@ export default function Reports() {
                       <TableRow
                         key={index}
                         className="group"
-                        data-state={selected?.water === index ? "selected" : undefined}
-                        onClick={() => setSelected((s) => ({ ...(s || {}), water: index }))}
+                        data-state={
+                          selected?.water === index ? "selected" : undefined
+                        }
+                        onClick={() =>
+                          setSelected((s) => ({ ...(s || {}), water: index }))
+                        }
                       >
-                        <TableCell className="font-medium group-hover:font-semibold">{report.sourceLocation}</TableCell>
+                        <TableCell className="font-medium group-hover:font-semibold">
+                          {report.sourceLocation}
+                        </TableCell>
                         <TableCell>
-                          <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.turbidity}</span>
+                          <span className="bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md text-xs font-medium">
+                            {report.turbidity}
+                          </span>
                         </TableCell>
                         <TableCell>{report.ph}</TableCell>
                         <TableCell>
-                          <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md text-xs font-medium">{report.tubritate}</span>
+                          <span className="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-md text-xs font-medium">
+                            {report.tubritate}
+                          </span>
                         </TableCell>
-                        <TableCell className="text-gray-500">{report.date}</TableCell>
+                        <TableCell className="text-gray-500">
+                          {report.date}
+                        </TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -141,8 +276,13 @@ export default function Reports() {
               </h2>
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-2">Disease</label>
-                  <Select value={selectedDisease} onValueChange={setSelectedDisease}>
+                  <label className="text-sm font-medium text-gray-700 block mb-2">
+                    Disease
+                  </label>
+                  <Select
+                    value={selectedDisease}
+                    onValueChange={setSelectedDisease}
+                  >
                     <SelectTrigger className="bg-white/70 backdrop-blur-sm border-white/30">
                       <SelectValue placeholder="Disease" />
                     </SelectTrigger>
@@ -156,22 +296,31 @@ export default function Reports() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-2">Village</label>
-                  <Select value={selectedVillage} onValueChange={setSelectedVillage}>
+                  <label className="text-sm font-medium text-gray-700 block mb-2">
+                    Village
+                  </label>
+                  <Select
+                    value={selectedVillage}
+                    onValueChange={setSelectedVillage}
+                  >
                     <SelectTrigger className="bg-white/70 backdrop-blur-sm border-white/30">
                       <SelectValue placeholder="Village" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="khanpur">Khanpur</SelectItem>
                       <SelectItem value="pendor">Pendor</SelectItem>
-                      <SelectItem value="ramtur">Ramtur Shanti Nagar</SelectItem>
+                      <SelectItem value="ramtur">
+                        Ramtur Shanti Nagar
+                      </SelectItem>
                       <SelectItem value="block-c">Block C</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-2">Village</label>
+                  <label className="text-sm font-medium text-gray-700 block mb-2">
+                    Village
+                  </label>
                   <Select>
                     <SelectTrigger className="bg-white/70 backdrop-blur-sm border-white/30">
                       <SelectValue placeholder="Village" />
@@ -184,7 +333,9 @@ export default function Reports() {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium text-gray-700 block mb-2">Start Date</label>
+                  <label className="text-sm font-medium text-gray-700 block mb-2">
+                    Start Date
+                  </label>
                   <Input
                     type="date"
                     value={startDate}
@@ -201,7 +352,9 @@ export default function Reports() {
 
             {/* Bulk Upload */}
             <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Bulk Upload</h2>
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                Bulk Upload
+              </h2>
               <div className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
                   <CloudUpload className="w-10 h-10 text-blue-600" />

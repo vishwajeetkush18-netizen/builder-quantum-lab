@@ -12,7 +12,9 @@ function NavLink({ to, label }: { to: string; label: string }) {
         "relative px-1 text-gray-600 hover:text-blue-600 transition-colors font-medium " +
         (active ? "text-blue-600" : "") +
         " after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-600 after:transition-transform after:duration-300 after:origin-left " +
-        (active ? "after:scale-x-100" : "after:scale-x-0 hover:after:scale-x-100")
+        (active
+          ? "after:scale-x-100"
+          : "after:scale-x-0 hover:after:scale-x-100")
       }
     >
       {label}
@@ -26,7 +28,9 @@ export default function SiteHeader() {
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <InteractiveLogo />
-          <span className="text-lg font-semibold text-gray-900">Health Surveillance</span>
+          <span className="text-lg font-semibold text-gray-900">
+            Health Surveillance
+          </span>
         </div>
         <nav className="flex-1 flex items-center justify-center space-x-8">
           <NavLink to="/dashboard" label="Dashboard" />
