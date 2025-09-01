@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { AlertTriangle, Droplet, LineChart, Shield, TrendingUp, User } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import KPIStat from "@/components/ui/kpi-card";
+import SiteFooter from "@/components/ui/site-footer";
 
 export default function AIRisk() {
   const aiRiskRows = [
@@ -49,57 +51,10 @@ export default function AIRisk() {
       <main className="p-8 space-y-8">
         {/* KPI */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-blue rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Total cases reported today</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">3,500</p>
-              </div>
-              <div className="w-14 h-14 accent-blue rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-7 h-7 text-white" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-green rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Water sources tested</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">550</p>
-              </div>
-              <div className="w-14 h-14 accent-green rounded-xl flex items-center justify-center">
-                <Droplet className="w-7 h-7 text-white" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-orange rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Active alerts</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">10</p>
-              </div>
-              <div className="w-14 h-14 accent-orange rounded-xl flex items-center justify-center">
-                <AlertTriangle className="w-7 h-7 text-white" />
-              </div>
-            </div>
-          </div>
-
-          <div className="glass-card-bright rounded-2xl p-8 scroll-reveal kpi-card-shadow relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-20 h-20 accent-purple rounded-full opacity-10 transform translate-x-6 -translate-y-6"></div>
-            <div className="flex items-start justify-between relative z-10">
-              <div>
-                <p className="text-gray-500 text-sm font-medium mb-1">Villages at High Risk</p>
-                <p className="text-4xl font-bold text-gray-900 mt-3">7</p>
-              </div>
-              <div className="w-14 h-14 accent-purple rounded-xl flex items-center justify-center">
-                <LineChart className="w-7 h-7 text-gray-700" />
-              </div>
-            </div>
-          </div>
+          <KPIStat label="Total cases reported today" value={"3,500"} icon={<TrendingUp className="w-7 h-7 text-white" />} accent="blue" />
+          <KPIStat label="Water sources tested" value={"550"} icon={<Droplet className="w-7 h-7 text-white" />} accent="green" />
+          <KPIStat label="Active alerts" value={"10"} icon={<AlertTriangle className="w-7 h-7 text-white" />} accent="orange" />
+          <KPIStat label="Villages at High Risk" value={"7"} icon={<LineChart className="w-7 h-7 text-gray-700" />} accent="purple" />
         </div>
 
         {/* Main grid */}
@@ -167,6 +122,7 @@ export default function AIRisk() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   );
 }
