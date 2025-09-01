@@ -122,7 +122,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Water sources tested</p>
@@ -140,7 +140,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Active alerts</p>
@@ -158,7 +158,7 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="glass-card rounded-2xl p-6 scroll-reveal">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal">
             <div className="flex items-start justify-between">
               <div>
                 <p className="text-gray-600 text-sm font-medium">Villages at High Risk</p>
@@ -180,7 +180,7 @@ export default function Dashboard() {
         {/* Main Dashboard Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           {/* Map Section */}
-          <div className="xl:col-span-2 glass-card rounded-2xl p-6 scroll-reveal-slide-left">
+          <div className="xl:col-span-2 glass-card-bright rounded-2xl p-6 scroll-reveal-slide-left">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Village District</h2>
             <div className="relative h-80 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl overflow-hidden">
               {/* Map Background */}
@@ -231,7 +231,7 @@ export default function Dashboard() {
           </div>
 
           {/* Recent Alerts */}
-          <div className="glass-card rounded-2xl p-6 scroll-reveal-slide-right">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal-slide-right">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
             <div className="space-y-4">
               <div className="flex items-start justify-between">
@@ -273,7 +273,7 @@ export default function Dashboard() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Cases Chart */}
-          <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Cases in last 7 days</h2>
             <div className="h-64 relative">
               <svg viewBox="0 0 300 200" className="w-full h-full">
@@ -320,7 +320,7 @@ export default function Dashboard() {
           </div>
 
           {/* Disease Distribution Chart */}
-          <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
+          <div className="glass-card-bright rounded-2xl p-6 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Disease Distribution</h2>
             <div className="h-64 flex items-center justify-center">
               <div className="relative">
