@@ -190,38 +190,36 @@ export default function Dashboard() {
           {/* Recent Alerts */}
           <div className="glass-card-bright rounded-2xl p-8 scroll-reveal-slide-right">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
-            <div className="space-y-4">
-              <div className="flex items-start justify-between">
+            <div className="space-y-2">
+              <div className="flex items-start justify-between group p-2 rounded-lg hover:bg-blue-50/50 transition-colors cursor-pointer">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Fever outbreak in Khanpur</p>
                 </div>
                 <span className="glass-bright text-blue-600 text-xs px-2 py-1 rounded-full font-medium border border-blue-200">Pending</span>
               </div>
-              
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between group p-2 rounded-lg hover:bg-blue-50/50 transition-colors cursor-pointer">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Contaminated well</p>
                 </div>
                 <span className="glass-bright text-green-600 text-xs px-2 py-1 rounded-full font-medium border border-green-200">Acknowledged</span>
               </div>
-              
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between group p-2 rounded-lg hover:bg-blue-50/50 transition-colors cursor-pointer">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Diarrhea cases well in Ramtur Shanti Nagar</p>
                 </div>
+                <span className="glass-bright text-orange-600 text-xs px-2 py-1 rounded-full font-medium border border-orange-200">Review</span>
               </div>
-              
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between group p-2 rounded-lg hover:bg-blue-50/50 transition-colors cursor-pointer">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">Typhoid in Block C</p>
                 </div>
                 <span className="glass-bright text-blue-600 text-xs px-2 py-1 rounded-full font-medium border border-blue-200">Pending</span>
               </div>
-              
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between group p-2 rounded-lg hover:bg-blue-50/50 transition-colors cursor-pointer">
                 <div className="flex-1">
                   <p className="text-sm font-medium text-gray-900">New vector-borne illness</p>
                 </div>
+                <span className="glass-bright text-purple-600 text-xs px-2 py-1 rounded-full font-medium border border-purple-200">Investigate</span>
               </div>
             </div>
           </div>
@@ -243,10 +241,22 @@ export default function Dashboard() {
                 <rect width="100%" height="100%" fill="url(#grid)" />
                 
                 {/* Area chart */}
-                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60 L 280 180 Z" 
+                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60 L 280 180 Z"
                       fill="url(#areaGradient)" />
-                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60" 
+                <path d="M 20 180 L 50 160 L 80 140 L 110 130 L 140 120 L 170 110 L 200 90 L 230 80 L 260 70 L 280 60"
                       fill="none" stroke="#3B82F6" strokeWidth="2" />
+                <g>
+                  <circle cx="20" cy="180" r="3" fill="#3B82F6"><title>Mon: 0</title></circle>
+                  <circle cx="50" cy="160" r="3" fill="#3B82F6"><title>Tue: 200</title></circle>
+                  <circle cx="80" cy="140" r="3" fill="#3B82F6"><title>Wed: 400</title></circle>
+                  <circle cx="110" cy="130" r="3" fill="#3B82F6"><title>Thu: 500</title></circle>
+                  <circle cx="140" cy="120" r="3" fill="#3B82F6"><title>Fri: 600</title></circle>
+                  <circle cx="170" cy="110" r="3" fill="#3B82F6"><title>Sat: 700</title></circle>
+                  <circle cx="200" cy="90" r="3" fill="#3B82F6"><title>Sun: 900</title></circle>
+                  <circle cx="230" cy="80" r="3" fill="#3B82F6"><title>Mon: 1000</title></circle>
+                  <circle cx="260" cy="70" r="3" fill="#3B82F6"><title>Tue: 1100</title></circle>
+                  <circle cx="280" cy="60" r="3" fill="#3B82F6"><title>Wed: 1200</title></circle>
+                </g>
                 
                 {/* Gradient definition */}
                 <defs>
@@ -284,24 +294,24 @@ export default function Dashboard() {
                 <svg width="200" height="200" viewBox="0 0 200 200">
                   {/* Donut chart segments */}
                   <circle cx="100" cy="100" r="80" fill="none" stroke="#F59E0B" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)" />
+                          strokeDasharray="50 100" strokeDashoffset="0" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
                   <circle cx="100" cy="100" r="80" fill="none" stroke="#22C55E" strokeWidth="25"
-                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" />
+                          strokeDasharray="37.5 100" strokeDashoffset="-50" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
                   <circle cx="100" cy="100" r="80" fill="none" stroke="#3B82F6" strokeWidth="25"
-                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)" />
+                          strokeDasharray="50 100" strokeDashoffset="-87.5" transform="rotate(-90 100 100)" className="opacity-70 hover:opacity-100 cursor-pointer transition-opacity" />
                 </svg>
                 
                 {/* Legend */}
                 <div className="absolute -right-32 top-0 space-y-3 text-sm">
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <span className="text-gray-600">Diarrheal Typhoid 20%</span>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                     <span className="text-gray-600">Malaria 15%</span>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 cursor-pointer hover:font-medium">
                     <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
                     <span className="text-gray-600">Other 20%</span>
                   </div>
