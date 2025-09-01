@@ -86,9 +86,15 @@ export default function Index() {
               <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors">Settings</a>
             </nav>
           </div>
-          <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
-            <User className="w-6 h-6 text-white" />
-          </div>
+          <button
+            onClick={() => handleIconClick('profile', 'user profile')}
+            className={`w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-blue-700 hover:scale-110 hover:shadow-lg cursor-pointer ${
+              activeIcon === 'profile' ? 'scale-95' : ''
+            }`}
+            title="User Profile"
+          >
+            <User className="w-6 h-6 text-white transition-transform duration-200 hover:scale-110" />
+          </button>
         </div>
       </header>
 
