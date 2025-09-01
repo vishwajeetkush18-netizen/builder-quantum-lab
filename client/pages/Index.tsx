@@ -161,7 +161,7 @@ export default function Index() {
           </div>
 
           {/* Recent Alerts */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-slide-right">
+          <div className="glass-card rounded-2xl p-6 scroll-reveal-slide-right">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Recent Alerts</h2>
             <div className="space-y-4">
               <div className="flex items-start justify-between">
@@ -203,7 +203,7 @@ export default function Index() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
           {/* Cases Chart */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-blue-100/50 scroll-reveal-scale">
+          <div className="glass-card rounded-2xl p-6 scroll-reveal-scale">
             <h2 className="text-xl font-semibold text-gray-900 mb-4">Cases in last 7 days</h2>
             <div className="h-64 relative">
               <svg viewBox="0 0 300 200" className="w-full h-full">
