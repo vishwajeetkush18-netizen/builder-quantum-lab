@@ -11,10 +11,10 @@ export default function Dashboard() {
     "yellow" | "green" | "blue" | null
   >(null);
   const [stats, setStats] = useState({
-    cases: 1200,
-    water: 350,
-    activeAlerts: 15,
-    highRiskVillages: 5,
+    cases: 0,
+    water: 0,
+    activeAlerts: 0,
+    highRiskVillages: 0,
   });
 
   const handleIconClick = (iconName: string, action: string) => {
