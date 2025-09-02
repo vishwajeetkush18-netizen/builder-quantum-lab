@@ -112,6 +112,9 @@ export default function Alerts() {
     },
   ];
 
+  const [alerts, setAlerts] = useState<{title:string;status:string;desc:string}[]>([]);
+  const [stats, setStats] = useState({ cases: 32000, water: 350, activeAlerts: 15, highRiskVillages: 8 });
+
   const alertHistory = [
     { date: "2023-10-22", status: "Pending", detail: "" },
     { date: "", status: "", detail: "Centri Santinmeli (Malaria)" },
@@ -126,6 +129,12 @@ export default function Alerts() {
     null,
   );
   const [selectedWaterRow, setSelectedWaterRow] = useState<number | null>(null);
+
+  // Fetch live alerts and stats
+  useEffect(()=>{
+    fetch('/api/notifications').then(r=>r.json()).then((d)=> setAlerts(d.alerts || [])).catch(()=>{});
+    fetch('/api/stats').then(r=>r.json()).then(setStats).catch(()=>{});
+  },[]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
