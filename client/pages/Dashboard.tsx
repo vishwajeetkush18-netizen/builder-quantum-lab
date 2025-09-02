@@ -66,6 +66,8 @@ export default function Dashboard() {
       observer.observe(element);
     });
 
+    fetch('/api/stats').then(r=>r.json()).then(setStats).catch(()=>{});
+
     return () => {
       elements.forEach((element) => {
         observer.unobserve(element);
