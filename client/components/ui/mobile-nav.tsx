@@ -47,7 +47,7 @@ export default function MobileNav() {
         <nav className="px-2 py-4">
           <ul className="flex flex-col">
             {items.map((item) => {
-              const active = pathname === item.to;
+              const active = pathname === item.to || pathname.startsWith(item.to + "/");
               return (
                 <li key={item.to}>
                   <SheetClose asChild>
