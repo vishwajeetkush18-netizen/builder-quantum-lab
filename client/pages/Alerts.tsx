@@ -116,10 +116,10 @@ export default function Alerts() {
     { title: string; status: string; desc: string }[]
   >([]);
   const [stats, setStats] = useState({
-    cases: 32000,
-    water: 350,
-    activeAlerts: 15,
-    highRiskVillages: 8,
+    cases: 0,
+    water: 0,
+    activeAlerts: 0,
+    highRiskVillages: 0,
   });
 
   const alertHistory = [
