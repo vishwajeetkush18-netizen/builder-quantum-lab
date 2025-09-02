@@ -179,6 +179,18 @@ export default function Alerts() {
               Outbreak Alerts
             </h2>
 
+            {/* Dynamic alerts banner */}
+            {alerts.length > 0 && (
+              <div className="space-y-3 mb-6">
+                {alerts.map((a, i)=> (
+                  <div key={i} className={`rounded-xl border p-3 ${a.status==='Pending'?'bg-red-50 border-red-200':'bg-green-50 border-green-200'}`}>
+                    <div className="font-medium text-gray-900">{a.title}</div>
+                    <div className="text-xs text-gray-700"><span className="mr-2 rounded bg-slate-800 px-2 py-0.5 text-white">Status: {a.status}</span>{a.desc}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div className="overflow-x-auto mb-6">
               <Table>
                 <TableHeader>
