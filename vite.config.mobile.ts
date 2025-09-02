@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: "dist/mobile",
     rollupOptions: {
-      input: path.resolve(__dirname, "mobile.html"),
+      input: { index: path.resolve(__dirname, "mobile.html") },
     },
   },
   plugins: [
