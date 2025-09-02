@@ -1,11 +1,11 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useMatch } from "react-router-dom";
 import InteractiveLogo from "@/components/ui/interactive-logo";
 import { User } from "lucide-react";
 import MobileNav from "@/components/ui/mobile-nav";
 
 function NavLink({ to, label }: { to: string; label: string }) {
-  const { pathname } = useLocation();
-  const active = pathname === to;
+  const match = useMatch({ path: to, end: false });
+  const active = Boolean(match);
   return (
     <Link
       to={to}
