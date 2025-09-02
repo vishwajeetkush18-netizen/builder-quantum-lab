@@ -10,7 +10,12 @@ export default function Dashboard() {
   const [activeSegment, setActiveSegment] = useState<
     "yellow" | "green" | "blue" | null
   >(null);
-  const [stats, setStats] = useState({ cases: 1200, water: 350, activeAlerts: 15, highRiskVillages: 5 });
+  const [stats, setStats] = useState({
+    cases: 1200,
+    water: 350,
+    activeAlerts: 15,
+    highRiskVillages: 5,
+  });
 
   const handleIconClick = (iconName: string, action: string) => {
     console.log(`${iconName} clicked - ${action}`);
@@ -66,7 +71,10 @@ export default function Dashboard() {
       observer.observe(element);
     });
 
-    fetch('/api/stats').then(r=>r.json()).then(setStats).catch(()=>{});
+    fetch("/api/stats")
+      .then((r) => r.json())
+      .then(setStats)
+      .catch(() => {});
 
     return () => {
       elements.forEach((element) => {

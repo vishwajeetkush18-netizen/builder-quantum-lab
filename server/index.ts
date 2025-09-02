@@ -13,7 +13,7 @@ export function createServer() {
 
   // Middleware
   app.use(cors());
-  app.use(express.json({ limit: '5mb' }));
+  app.use(express.json({ limit: "5mb" }));
   app.use(express.urlencoded({ extended: true }));
 
   // Example API routes
@@ -24,37 +24,65 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
 
-  app.post('/api/health-report', (req, res) => {
+  app.post("/api/health-report", (req, res) => {
     const body = req.body ?? {};
     memory.healthReports.push({ ...body, id: memory.healthReports.length + 1 });
     res.json({ ok: true });
   });
 
-  app.post('/api/water-test', (req, res) => {
+  app.post("/api/water-test", (req, res) => {
     const body = req.body ?? {};
     memory.waterTests.push({ ...body, id: memory.waterTests.length + 1 });
     res.json({ ok: true });
   });
 
-  app.get('/api/notifications', (_req, res) => {
-    const diarrheaCount = memory.healthReports.filter((r)=> r.symptoms?.includes('Diarrhea')).length;
-    const contaminationYes = memory.waterTests.some((w)=> w.contamination === 'yes');
+  app.get("/api/notifications", (_req, res) => {
+    const diarrheaCount = memory.healthReports.filter((r) =>
+      r.symptoms?.includes("Diarrhea"),
+    ).length;
+    const contaminationYes = memory.waterTests.some(
+      (w) => w.contamination === "yes",
+    );
     const alerts = [] as any[];
     if (diarrheaCount >= 3 || contaminationYes) {
-      alerts.push({ title: 'Possible Outbreak Alert', status: 'Pending', desc: 'Multiple diarrhea cases/contaminated water' });
+      alerts.push({
+        title: "Possible Outbreak Alert",
+        status: "Pending",
+        desc: "Multiple diarrhea cases/contaminated water",
+      });
     }
-    alerts.push({ title: 'New health guideline released', status: 'Acknowledged', desc: 'Updated hygiene protocols' });
-    alerts.push({ title: 'Reminder: Submit weekly report', status: 'Pending', desc: 'Collect data for May' });
+    alerts.push({
+      title: "New health guideline released",
+      status: "Acknowledged",
+      desc: "Updated hygiene protocols",
+    });
+    alerts.push({
+      title: "Reminder: Submit weekly report",
+      status: "Pending",
+      desc: "Collect data for May",
+    });
     res.json({ alerts });
   });
 
-  app.get('/api/stats', (_req, res) => {
+  app.get("/api/stats", (_req, res) => {
     const cases = memory.healthReports.length;
     const water = memory.waterTests.length;
-    const diarrheaCount = memory.healthReports.filter((r)=> r.symptoms?.includes('Diarrhea')).length;
-    const contaminationYes = memory.waterTests.some((w)=> w.contamination === 'yes');
-    const activeAlerts = (diarrheaCount >= 3 || contaminationYes) ? 1 : 0;
-    res.json({ cases, water, activeAlerts, highRiskVillages: Math.min(8, Math.max(1, Math.floor((cases+water)/5))) });
+    const diarrheaCount = memory.healthReports.filter((r) =>
+      r.symptoms?.includes("Diarrhea"),
+    ).length;
+    const contaminationYes = memory.waterTests.some(
+      (w) => w.contamination === "yes",
+    );
+    const activeAlerts = diarrheaCount >= 3 || contaminationYes ? 1 : 0;
+    res.json({
+      cases,
+      water,
+      activeAlerts,
+      highRiskVillages: Math.min(
+        8,
+        Math.max(1, Math.floor((cases + water) / 5)),
+      ),
+    });
   });
 
   return app;

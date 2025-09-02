@@ -112,8 +112,15 @@ export default function Alerts() {
     },
   ];
 
-  const [alerts, setAlerts] = useState<{title:string;status:string;desc:string}[]>([]);
-  const [stats, setStats] = useState({ cases: 32000, water: 350, activeAlerts: 15, highRiskVillages: 8 });
+  const [alerts, setAlerts] = useState<
+    { title: string; status: string; desc: string }[]
+  >([]);
+  const [stats, setStats] = useState({
+    cases: 32000,
+    water: 350,
+    activeAlerts: 15,
+    highRiskVillages: 8,
+  });
 
   const alertHistory = [
     { date: "2023-10-22", status: "Pending", detail: "" },
@@ -131,10 +138,16 @@ export default function Alerts() {
   const [selectedWaterRow, setSelectedWaterRow] = useState<number | null>(null);
 
   // Fetch live alerts and stats
-  useEffect(()=>{
-    fetch('/api/notifications').then(r=>r.json()).then((d)=> setAlerts(d.alerts || [])).catch(()=>{});
-    fetch('/api/stats').then(r=>r.json()).then(setStats).catch(()=>{});
-  },[]);
+  useEffect(() => {
+    fetch("/api/notifications")
+      .then((r) => r.json())
+      .then((d) => setAlerts(d.alerts || []))
+      .catch(() => {});
+    fetch("/api/stats")
+      .then((r) => r.json())
+      .then(setStats)
+      .catch(() => {});
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
@@ -182,10 +195,18 @@ export default function Alerts() {
             {/* Dynamic alerts banner */}
             {alerts.length > 0 && (
               <div className="space-y-3 mb-6">
-                {alerts.map((a, i)=> (
-                  <div key={i} className={`rounded-xl border p-3 ${a.status==='Pending'?'bg-red-50 border-red-200':'bg-green-50 border-green-200'}`}>
+                {alerts.map((a, i) => (
+                  <div
+                    key={i}
+                    className={`rounded-xl border p-3 ${a.status === "Pending" ? "bg-red-50 border-red-200" : "bg-green-50 border-green-200"}`}
+                  >
                     <div className="font-medium text-gray-900">{a.title}</div>
-                    <div className="text-xs text-gray-700"><span className="mr-2 rounded bg-slate-800 px-2 py-0.5 text-white">Status: {a.status}</span>{a.desc}</div>
+                    <div className="text-xs text-gray-700">
+                      <span className="mr-2 rounded bg-slate-800 px-2 py-0.5 text-white">
+                        Status: {a.status}
+                      </span>
+                      {a.desc}
+                    </div>
                   </div>
                 ))}
               </div>
