@@ -147,25 +147,25 @@ export default function Alerts() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <KPIStat
             label="Total cases reported today"
-            value={"3,2000"}
+            value={String(stats.cases)}
             icon={<Users className="w-7 h-7 text-white" />}
             accent="blue"
           />
           <KPIStat
             label="Water sources tested"
-            value={"350"}
+            value={String(stats.water)}
             icon={<Droplet className="w-7 h-7 text-white" />}
             accent="green"
           />
           <KPIStat
             label="Active alerts"
-            value={"15"}
+            value={String(stats.activeAlerts)}
             icon={<AlertTriangle className="w-7 h-7 text-white" />}
             accent="orange"
           />
           <KPIStat
             label="Villages at High Risk"
-            value={"8"}
+            value={String(stats.highRiskVillages)}
             icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
             accent="purple"
           />
