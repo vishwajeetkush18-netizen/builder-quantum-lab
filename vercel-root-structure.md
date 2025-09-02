@@ -20,7 +20,7 @@ your-project/                       (Repository Root)
 ```
 your-project/
 ├── package.json                    ✅ REQUIRED
-├── index.html                      ✅ REQUIRED  
+├── index.html                      ✅ REQUIRED
 ├── vite.config.ts                  ✅ REQUIRED
 ├── vercel.json                     ⭐ RECOMMENDED - Deployment config
 ├── tsconfig.json                   ⭐ RECOMMENDED - TypeScript
@@ -41,6 +41,7 @@ your-project/
 ## 🔧 Key Configuration Files
 
 ### 1. package.json (REQUIRED)
+
 ```json
 {
   "name": "your-app",
@@ -61,6 +62,7 @@ your-project/
 ```
 
 ### 2. index.html (REQUIRED)
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -77,19 +79,21 @@ your-project/
 ```
 
 ### 3. vite.config.ts (REQUIRED)
+
 ```typescript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist'
-  }
-})
+    outDir: "dist",
+  },
+});
 ```
 
 ### 4. vercel.json (RECOMMENDED)
+
 ```json
 {
   "builds": [
@@ -135,6 +139,7 @@ export default defineConfig({
 ## 📁 Folder Structure Examples
 
 ### Current Monolithic App (Import as-is):
+
 ```
 health-surveillance/
 ├── package.json                    ← Points to client build
@@ -146,6 +151,7 @@ health-surveillance/
 ```
 
 ### Separate Web App:
+
 ```
 health-surveillance-web/
 ├── package.json                    ← Web dependencies only
@@ -163,6 +169,7 @@ health-surveillance-web/
 ```
 
 ### Separate Mobile App:
+
 ```
 health-surveillance-mobile/
 ├── package.json                    ← Mobile + PWA dependencies
@@ -184,6 +191,7 @@ health-surveillance-mobile/
 ### Before importing to Vercel:
 
 1. **Test build locally**:
+
    ```bash
    npm run build
    npm run preview
@@ -205,6 +213,7 @@ health-surveillance-mobile/
    - Repository is public or Vercel has access
 
 ### Vercel will automatically:
+
 - Detect your framework
 - Run `npm install`
 - Run `npm run build`
