@@ -16,7 +16,7 @@
     "build:client": "vite build",
     "build:server": "vite build --config vite.config.server.ts",
     "build:web": "vite build --config vite.config.web.ts",
-    "build:mobile": "vite build --config vite.config.mobile.ts",
+    "build:mobile": "vite build --config vite.config.mobile.ts && node scripts/after-mobile-build.mjs",
     "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
