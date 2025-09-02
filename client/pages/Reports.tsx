@@ -132,25 +132,25 @@ export default function Reports() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <KPIStat
             label="Total cases reported today"
-            value={"2,5000"}
+            value={"0"}
             icon={<Users className="w-7 h-7 text-white" />}
             accent="blue"
           />
           <KPIStat
             label="Water sources tested"
-            value={"350"}
+            value={"0"}
             icon={<Droplet className="w-7 h-7 text-white" />}
             accent="green"
           />
           <KPIStat
             label="Active alerts"
-            value={"15"}
+            value={"0"}
             icon={<AlertTriangle className="w-7 h-7 text-white" />}
             accent="orange"
           />
           <KPIStat
             label="Villages at High Risk"
-            value={"6"}
+            value={"0"}
             icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
             accent="purple"
           />
