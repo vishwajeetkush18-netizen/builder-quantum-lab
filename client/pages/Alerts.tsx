@@ -8,7 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -112,6 +112,16 @@ export default function Alerts() {
     },
   ];
 
+  const [alerts, setAlerts] = useState<
+    { title: string; status: string; desc: string }[]
+  >([]);
+  const [stats, setStats] = useState({
+    cases: 32000,
+    water: 350,
+    activeAlerts: 15,
+    highRiskVillages: 8,
+  });
+
   const alertHistory = [
     { date: "2023-10-22", status: "Pending", detail: "" },
     { date: "", status: "", detail: "Centri Santinmeli (Malaria)" },
@@ -127,6 +137,18 @@ export default function Alerts() {
   );
   const [selectedWaterRow, setSelectedWaterRow] = useState<number | null>(null);
 
+  // Fetch live alerts and stats
+  useEffect(() => {
+    fetch("/api/notifications")
+      .then((r) => r.json())
+      .then((d) => setAlerts(d.alerts || []))
+      .catch(() => {});
+    fetch("/api/stats")
+      .then((r) => r.json())
+      .then(setStats)
+      .catch(() => {});
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-white via-gray-50 to-blue-50">
       {/* Header */}
@@ -138,25 +160,25 @@ export default function Alerts() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <KPIStat
             label="Total cases reported today"
-            value={"3,2000"}
+            value={String(stats.cases)}
             icon={<Users className="w-7 h-7 text-white" />}
             accent="blue"
           />
           <KPIStat
             label="Water sources tested"
-            value={"350"}
+            value={String(stats.water)}
             icon={<Droplet className="w-7 h-7 text-white" />}
             accent="green"
           />
           <KPIStat
             label="Active alerts"
-            value={"15"}
+            value={String(stats.activeAlerts)}
             icon={<AlertTriangle className="w-7 h-7 text-white" />}
             accent="orange"
           />
           <KPIStat
             label="Villages at High Risk"
-            value={"8"}
+            value={String(stats.highRiskVillages)}
             icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
             accent="purple"
           />
@@ -169,6 +191,26 @@ export default function Alerts() {
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Outbreak Alerts
             </h2>
+
+            {/* Dynamic alerts banner */}
+            {alerts.length > 0 && (
+              <div className="space-y-3 mb-6">
+                {alerts.map((a, i) => (
+                  <div
+                    key={i}
+                    className={`rounded-xl border p-3 ${a.status === "Pending" ? "bg-red-50 border-red-200" : "bg-green-50 border-green-200"}`}
+                  >
+                    <div className="font-medium text-gray-900">{a.title}</div>
+                    <div className="text-xs text-gray-700">
+                      <span className="mr-2 rounded bg-slate-800 px-2 py-0.5 text-white">
+                        Status: {a.status}
+                      </span>
+                      {a.desc}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <div className="overflow-x-auto mb-6">
               <Table>

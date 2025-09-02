@@ -14,6 +14,13 @@ import Reports from "./pages/Reports";
 import Alerts from "./pages/Alerts";
 import AIRisk from "./pages/AIRisk";
 import NotFound from "./pages/NotFound";
+import MobileLayout from "./pages/mobile/MobileLayout";
+import MobileHome from "./pages/mobile/Home";
+import ReportForm from "./pages/mobile/ReportForm";
+import WaterTest from "./pages/mobile/WaterTest";
+import Notifications from "./pages/mobile/Notifications";
+import Awareness from "./pages/mobile/Awareness";
+import { setupOnlineSync } from "@/lib/offline";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +52,10 @@ const RoutesWithObserver = () => {
     return () => observer.disconnect();
   }, [location.pathname]);
 
+  useEffect(() => {
+    setupOnlineSync("");
+  }, []);
+
   return (
     <Routes>
       <Route path="/" element={<Login />} />
@@ -54,6 +65,15 @@ const RoutesWithObserver = () => {
       <Route path="/alerts" element={<Alerts />} />
       <Route path="/ai-risk" element={<AIRisk />} />
       <Route path="/legacy" element={<Index />} />
+
+      <Route path="/app" element={<MobileLayout />}>
+        <Route index element={<MobileHome />} />
+        <Route path="report" element={<ReportForm />} />
+        <Route path="water" element={<WaterTest />} />
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="awareness" element={<Awareness />} />
+      </Route>
+
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>
