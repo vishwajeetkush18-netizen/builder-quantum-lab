@@ -1,13 +1,16 @@
 # Vercel Deployment Guide: Separate Web & Mobile Apps
 
 ## 🎯 Goal
+
 Deploy two separate applications:
+
 1. **Web Dashboard** - Admin interface with dashboard, reports, alerts, AI risk
 2. **Mobile App** - Community Care mobile interface for field workers
 
 ## 📁 Project Structure
 
 ### Current Structure:
+
 ```
 health-surveillance/
 ├── client/
@@ -25,6 +28,7 @@ health-surveillance/
 ```
 
 ### Target Structure:
+
 ```
 health-surveillance-web/     (Repository 1)
 ├── src/
@@ -52,6 +56,7 @@ health-surveillance-mobile/  (Repository 2)
 
 1. **Create new repository: `health-surveillance-web`**
 2. **Copy files for web app:**
+
    ```bash
    # Copy these files/folders:
    client/pages/Dashboard.tsx
@@ -66,6 +71,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 3. **Create Web App package.json:**
+
    ```json
    {
      "name": "health-surveillance-web",
@@ -81,7 +87,7 @@ health-surveillance-mobile/  (Repository 2)
        "react-dom": "^18.3.1",
        "react-router-dom": "^6.30.1",
        "@tanstack/react-query": "^5.84.2",
-       "lucide-react": "^0.539.0",
+       "lucide-react": "^0.539.0"
        // ... other dependencies from your current package.json
      },
      "devDependencies": {
@@ -95,6 +101,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 4. **Create Web App vite.config.ts:**
+
    ```typescript
    import { defineConfig } from "vite";
    import react from "@vitejs/plugin-react-swc";
@@ -114,6 +121,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 5. **Create Web App.tsx (entry point):**
+
    ```typescript
    import "./global.css";
    import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -144,6 +152,7 @@ health-surveillance-mobile/  (Repository 2)
 
 1. **Create new repository: `health-surveillance-mobile`**
 2. **Copy files for mobile app:**
+
    ```bash
    # Copy these files/folders:
    client/pages/mobile/
@@ -153,6 +162,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 3. **Create Mobile App package.json:**
+
    ```json
    {
      "name": "health-surveillance-mobile",
@@ -168,7 +178,7 @@ health-surveillance-mobile/  (Repository 2)
        "react-dom": "^18.3.1",
        "react-router-dom": "^6.30.1",
        "idb": "^8.0.3",
-       "lucide-react": "^0.539.0",
+       "lucide-react": "^0.539.0"
        // ... mobile-specific dependencies
      },
      "devDependencies": {
@@ -182,6 +192,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 4. **Create Mobile vite.config.ts with PWA:**
+
    ```typescript
    import { defineConfig } from "vite";
    import react from "@vitejs/plugin-react-swc";
@@ -218,6 +229,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 5. **Create Mobile App.tsx:**
+
    ```typescript
    import "./global.css";
    import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -248,6 +260,7 @@ health-surveillance-mobile/  (Repository 2)
 ## 🚀 Manual Vercel Deployment
 
 ### Prerequisites:
+
 1. Install Vercel CLI: `npm i -g vercel`
 2. Create accounts: GitHub + Vercel
 3. Create two separate GitHub repositories
@@ -255,6 +268,7 @@ health-surveillance-mobile/  (Repository 2)
 ### Deploy Web App:
 
 1. **Push to GitHub:**
+
    ```bash
    cd health-surveillance-web
    git init
@@ -265,6 +279,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 2. **Deploy to Vercel:**
+
    ```bash
    # Option 1: Using Vercel CLI
    vercel login
@@ -303,6 +318,7 @@ health-surveillance-mobile/  (Repository 2)
 ### Deploy Mobile App:
 
 1. **Push to GitHub:**
+
    ```bash
    cd health-surveillance-mobile
    git init
@@ -313,6 +329,7 @@ health-surveillance-mobile/  (Repository 2)
    ```
 
 2. **Deploy to Vercel:**
+
    ```bash
    vercel login
    vercel --prod
@@ -355,14 +372,17 @@ health-surveillance-mobile/  (Repository 2)
 ## 🌐 Domain Configuration
 
 After deployment, you'll get:
+
 - **Web App**: `https://health-surveillance-web.vercel.app`
 - **Mobile App**: `https://health-surveillance-mobile.vercel.app`
 
 ### Custom Domains (Optional):
+
 1. **Web**: `admin.yourdomain.com`
 2. **Mobile**: `app.yourdomain.com` or `mobile.yourdomain.com`
 
 ### Setting Custom Domains:
+
 1. Go to your Vercel project dashboard
 2. Click "Domains" tab
 3. Add your custom domain
@@ -373,12 +393,14 @@ After deployment, you'll get:
 Set these in Vercel dashboard for each project:
 
 ### Web App:
+
 ```
 VITE_API_URL=https://your-api-endpoint.com
 VITE_MOBILE_APP_URL=https://health-surveillance-mobile.vercel.app
 ```
 
 ### Mobile App:
+
 ```
 VITE_API_URL=https://your-api-endpoint.com
 VITE_WEB_APP_URL=https://health-surveillance-web.vercel.app
@@ -391,7 +413,7 @@ VITE_WEB_APP_URL=https://health-surveillance-web.vercel.app
 cd health-surveillance-web
 vercel --prod
 
-# Deploy mobile app  
+# Deploy mobile app
 cd health-surveillance-mobile
 vercel --prod
 ```
@@ -399,11 +421,13 @@ vercel --prod
 ## 📱 Testing
 
 ### Web App:
+
 - Test on desktop/laptop browsers
 - Check responsive design
 - Verify dashboard functionality
 
 ### Mobile App:
+
 - Test on mobile devices
 - Check PWA installation
 - Test offline functionality
@@ -412,6 +436,7 @@ vercel --prod
 ## 🔄 CI/CD (Optional)
 
 Set up automatic deployments:
+
 1. Connect GitHub repos to Vercel
 2. Enable auto-deploy on push to main
 3. Set up preview deployments for PR branches
