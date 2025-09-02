@@ -53,7 +53,8 @@ const ScrollObserver = () => {
 
 const MobileRoutes = () => (
   <Routes>
-    <Route element={<MobileLayout />}>
+    <Route path="/" element={<Navigate to="/app" replace />} />
+    <Route path="/app" element={<MobileLayout />}>
       <Route index element={<MobileHome />} />
       <Route path="report" element={<ReportForm />} />
       <Route path="water" element={<WaterTest />} />
