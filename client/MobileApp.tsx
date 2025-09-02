@@ -5,7 +5,7 @@ import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import MobileLayout from "./pages/mobile/MobileLayout";
 import MobileHome from "./pages/mobile/Home";
@@ -53,7 +53,8 @@ const ScrollObserver = () => {
 
 const MobileRoutes = () => (
   <Routes>
-    <Route element={<MobileLayout />}>
+    <Route path="/" element={<Navigate to="/app" replace />} />
+    <Route path="/app" element={<MobileLayout />}>
       <Route index element={<MobileHome />} />
       <Route path="report" element={<ReportForm />} />
       <Route path="water" element={<WaterTest />} />
