@@ -86,7 +86,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <KPIStat
             label="Total cases reported today"
-            value={"1,200"}
+            value={String(stats.cases)}
             icon={<Users className="w-7 h-7 text-white" />}
             accent="blue"
             deltaText="↗ +12.5% from yesterday"
@@ -94,7 +94,7 @@ export default function Dashboard() {
           />
           <KPIStat
             label="Water sources tested"
-            value={"350"}
+            value={String(stats.water)}
             icon={<Droplet className="w-7 h-7 text-white" />}
             accent="green"
             deltaText="↗ +8.2% from last week"
@@ -102,7 +102,7 @@ export default function Dashboard() {
           />
           <KPIStat
             label="Active alerts"
-            value={"15"}
+            value={String(stats.activeAlerts)}
             icon={<AlertTriangle className="w-7 h-7 text-white" />}
             accent="orange"
             deltaText="⚠ Requires attention"
@@ -110,7 +110,7 @@ export default function Dashboard() {
           />
           <KPIStat
             label="Villages at High Risk"
-            value={"5"}
+            value={String(stats.highRiskVillages)}
             icon={<TrendingUp className="w-7 h-7 text-gray-700" />}
             accent="purple"
             deltaText="📊 Trending analysis"
