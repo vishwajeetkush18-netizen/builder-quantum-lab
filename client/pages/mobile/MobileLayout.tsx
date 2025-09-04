@@ -1,12 +1,64 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
-import { Bell, ClipboardList, Droplets, Home, Languages } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Bell, ClipboardList, Droplets, Home, Languages, Shield } from "lucide-react";
 import { t, setLang, getLang } from "@/lib/i18n";
+
+function Splash() {
+  const [textIn, setTextIn] = useState(false);
+  const [logoIn, setLogoIn] = useState(false);
+  const [fadeOut, setFadeOut] = useState(false);
+
+  useEffect(() => {
+    const seen = sessionStorage.getItem("splash_seen");
+    if (seen) return;
+    const t1 = setTimeout(() => setLogoIn(true), 10); // slide-in start
+    const t2 = setTimeout(() => setTextIn(true), 10); // fade-in text
+    const t3 = setTimeout(() => setFadeOut(true), 1300); // hold ~1000ms after 300ms in
+    const t4 = setTimeout(() => sessionStorage.setItem("splash_seen", "1"), 1800);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      clearTimeout(t4);
+    };
+  }, []);
+
+  if (sessionStorage.getItem("splash_seen")) return null;
+
+  return (
+    <div
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0F9D58] transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      aria-label="App splash screen"
+    >
+      {/* Top-left logo badge */}
+      <div
+        className={`absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-300 ease-in-out ${logoIn ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-3 -translate-y-3 opacity-0"}`}
+      >
+        <Shield className="w-5 h-5" />
+      </div>
+
+      {/* Centered title + tagline */}
+      <div className="text-center select-none">
+        <div
+          className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
+          style={{ fontSize: "36px", lineHeight: 1.1 }}
+        >
+          SwasthyaSetu
+        </div>
+        <div className={`text-white/90 mt-2 transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`} style={{ fontSize: "14px" }}>
+          Connecting Health & Community
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function MobileLayout() {
   const { pathname } = useLocation();
   const lang = getLang();
   return (
     <div className="min-h-svh flex flex-col bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 to-white">
+      <Splash />
       <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-slate-900 text-white rounded-b-xl shadow">
         <div className="font-semibold">Community Care</div>
         <button
