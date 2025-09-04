@@ -59,7 +59,14 @@ function MapSVG({
           strokeOpacity="0.55"
         />
         {/* Lake */}
-        <ellipse cx="250" cy="210" rx="18" ry="10" fill="#93c5fd" opacity="0.5" />
+        <ellipse
+          cx="250"
+          cy="210"
+          rx="18"
+          ry="10"
+          fill="#93c5fd"
+          opacity="0.5"
+        />
 
         {/* Roads */}
         <path
@@ -85,8 +92,22 @@ function MapSVG({
             onMouseLeave={() => setHover(null)}
             style={{ cursor: "pointer" }}
           >
-            <circle cx={v.x} cy={v.y} r={5.5} fill={riskColor(v.risk)} stroke="#fff" strokeWidth={1.5} />
-            <circle cx={v.x} cy={v.y} r={8} fill="none" stroke={riskColor(v.risk)} strokeOpacity={0.2} />
+            <circle
+              cx={v.x}
+              cy={v.y}
+              r={5.5}
+              fill={riskColor(v.risk)}
+              stroke="#fff"
+              strokeWidth={1.5}
+            />
+            <circle
+              cx={v.x}
+              cy={v.y}
+              r={8}
+              fill="none"
+              stroke={riskColor(v.risk)}
+              strokeOpacity={0.2}
+            />
             <title>
               {`${v.name} • Cases: ${v.cases} • Water: ${v.water} • Alerts: ${v.alerts}`}
             </title>
@@ -106,7 +127,9 @@ function MapSVG({
             transform: "translate(8px, -50%)",
           }}
         >
-          <div className="font-semibold text-gray-900">Village: {hover.name}</div>
+          <div className="font-semibold text-gray-900">
+            Village: {hover.name}
+          </div>
           <div className="text-gray-600">Cases: {hover.cases}</div>
           <div className="text-gray-600">Water Results: {hover.water}</div>
           <div className="text-gray-600">Alerts: {hover.alerts}</div>
@@ -246,19 +269,61 @@ export default function Dashboard() {
             </h2>
             {(() => {
               const villages = [
-                { name: "Pendor", x: 240, y: 140, risk: "safe", cases: 85, water: "Safe", alerts: 2 },
-                { name: "Khanpur", x: 110, y: 160, risk: "warn", cases: 42, water: "Moderate", alerts: 1 },
-                { name: "Block C", x: 320, y: 110, risk: "danger", cases: 120, water: "Unsafe", alerts: 3 },
-                { name: "Ramtur", x: 180, y: 220, risk: "safe", cases: 30, water: "Safe", alerts: 0 },
-                { name: "Pendor South", x: 260, y: 200, risk: "warn", cases: 58, water: "Moderate", alerts: 1 },
+                {
+                  name: "Pendor",
+                  x: 240,
+                  y: 140,
+                  risk: "safe",
+                  cases: 85,
+                  water: "Safe",
+                  alerts: 2,
+                },
+                {
+                  name: "Khanpur",
+                  x: 110,
+                  y: 160,
+                  risk: "warn",
+                  cases: 42,
+                  water: "Moderate",
+                  alerts: 1,
+                },
+                {
+                  name: "Block C",
+                  x: 320,
+                  y: 110,
+                  risk: "danger",
+                  cases: 120,
+                  water: "Unsafe",
+                  alerts: 3,
+                },
+                {
+                  name: "Ramtur",
+                  x: 180,
+                  y: 220,
+                  risk: "safe",
+                  cases: 30,
+                  water: "Safe",
+                  alerts: 0,
+                },
+                {
+                  name: "Pendor South",
+                  x: 260,
+                  y: 200,
+                  risk: "warn",
+                  cases: 58,
+                  water: "Moderate",
+                  alerts: 1,
+                },
               ] as const;
 
               const riskColor = (r: string) =>
-                r === "danger" ? "#ef4444" : r === "warn" ? "#f59e0b" : "#22c55e";
+                r === "danger"
+                  ? "#ef4444"
+                  : r === "warn"
+                    ? "#f59e0b"
+                    : "#22c55e";
 
-              return (
-                <MapSVG villages={villages} riskColor={riskColor} />
-              );
+              return <MapSVG villages={villages} riskColor={riskColor} />;
             })()}
           </div>
 
