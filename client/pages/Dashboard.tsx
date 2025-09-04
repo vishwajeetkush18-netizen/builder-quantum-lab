@@ -133,64 +133,22 @@ export default function Dashboard() {
             <h2 className="text-xl font-semibold text-gray-900 mb-4">
               Village District
             </h2>
-            <div className="relative h-80 bg-gradient-to-br from-white to-gray-100 rounded-xl overflow-hidden border border-gray-200">
-              {/* Map Background */}
-              <div className="absolute inset-0 opacity-30">
-                <svg viewBox="0 0 400 300" className="w-full h-full">
-                  <path
-                    d="M50 50 Q150 30 250 50 Q350 70 350 150 Q320 250 200 280 Q80 250 50 150 Z"
-                    fill="#93C5FD"
-                    opacity="0.3"
-                  />
-                  <path
-                    d="M100 80 Q180 60 280 90 Q320 120 300 200 Q250 240 150 230 Q100 200 100 120 Z"
-                    fill="#34D399"
-                    opacity="0.2"
-                  />
-                </svg>
-              </div>
+            {(() => {
+              const villages = [
+                { name: "Pendor", x: 240, y: 140, risk: "safe", cases: 85, water: "Safe", alerts: 2 },
+                { name: "Khanpur", x: 110, y: 160, risk: "warn", cases: 42, water: "Moderate", alerts: 1 },
+                { name: "Block C", x: 320, y: 110, risk: "danger", cases: 120, water: "Unsafe", alerts: 3 },
+                { name: "Ramtur", x: 180, y: 220, risk: "safe", cases: 30, water: "Safe", alerts: 0 },
+                { name: "Pendor South", x: 260, y: 200, risk: "warn", cases: 58, water: "Moderate", alerts: 1 },
+              ] as const;
 
-              {/* Map Markers */}
-              <div className="absolute inset-0 p-4">
-                {/* Green circles - safe areas */}
-                <div className="absolute top-12 left-12 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-20 left-24 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-16 left-40 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-32 left-16 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-28 left-32 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-36 left-48 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-44 left-20 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-40 left-36 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-52 left-28 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-48 left-44 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-56 left-52 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-64 left-24 w-3 h-3 bg-green-500 rounded-full"></div>
-                <div className="absolute top-60 left-40 w-3 h-3 bg-green-500 rounded-full"></div>
+              const riskColor = (r: string) =>
+                r === "danger" ? "#ef4444" : r === "warn" ? "#f59e0b" : "#22c55e";
 
-                {/* Orange triangles - warning areas */}
-                <div className="absolute top-24 left-52 w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-orange-500"></div>
-                <div className="absolute top-40 left-56 w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-orange-500"></div>
-                <div className="absolute top-56 left-32 w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-orange-500"></div>
-                <div className="absolute top-64 left-48 w-0 h-0 border-l-2 border-r-2 border-b-3 border-transparent border-b-orange-500"></div>
-
-                {/* Red squares - danger areas */}
-                <div className="absolute top-36 left-60 w-3 h-3 bg-red-500"></div>
-                <div className="absolute top-52 left-60 w-3 h-3 bg-red-500"></div>
-                <div className="absolute top-68 left-36 w-3 h-3 bg-red-500"></div>
-
-                {/* Tooltip */}
-                <div className="absolute top-40 left-48 glass-bright rounded-lg p-3 text-sm z-10 border border-gray-200">
-                  <div className="font-semibold text-gray-900">
-                    Village: Pendor
-                  </div>
-                  <div className="text-gray-600">Cases: 85</div>
-                  <div className="text-gray-600">Water Results: Safe</div>
-                  <div className="text-gray-600">
-                    Alerts: 2 (Malaria outbreak)
-                  </div>
-                </div>
-              </div>
-            </div>
+              return (
+                <MapSVG villages={villages} riskColor={riskColor} />
+              );
+            })()}
           </div>
 
           {/* Recent Alerts */}
