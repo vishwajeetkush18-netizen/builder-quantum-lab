@@ -29,7 +29,10 @@ function Splash() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#0F9D58] transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      style={{
+        background: "linear-gradient(135deg, rgba(15,157,88,0.55), rgba(15,157,88,0.35))",
+      }}
       aria-label="App splash screen"
     >
       {/* Top-left logo badge */}
@@ -39,16 +42,23 @@ function Splash() {
         <Shield className="w-5 h-5" />
       </div>
 
-      {/* Centered title + tagline */}
-      <div className="text-center select-none">
-        <div
-          className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
-          style={{ fontSize: "36px", lineHeight: 1.1 }}
-        >
-          SwasthyaSetu
-        </div>
-        <div className={`text-white/90 mt-2 transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`} style={{ fontSize: "14px" }}>
-          Connecting Health & Community
+      {/* Center glass panel with title + tagline */}
+      <div
+        className={`text-center select-none transform transition-all duration-500 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
+      >
+        <div className="px-8 py-6 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 shadow-lg">
+          <div
+            className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
+            style={{ fontSize: "36px", lineHeight: 1.1 }}
+          >
+            SwasthyaSetu
+          </div>
+          <div
+            className={`text-white/90 mt-2 transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
+            style={{ fontSize: "14px" }}
+          >
+            Connecting Health & Community
+          </div>
         </div>
       </div>
     </div>
