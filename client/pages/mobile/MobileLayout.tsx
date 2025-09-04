@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Bell, ClipboardList, Droplets, Home, Languages, Shield } from "lucide-react";
+import { Bell, ClipboardList, Droplets, Home, Languages, Shield, ChevronDown } from "lucide-react";
 import { t, setLang, getLang } from "@/lib/i18n";
 
 function Splash() {
@@ -87,21 +87,42 @@ function Splash() {
 
 export default function MobileLayout() {
   const { pathname } = useLocation();
-  const lang = getLang();
+  const [lang, setLangLocal] = useState(getLang());
+  const [open, setOpen] = useState(false);
   return (
     <div className="min-h-svh flex flex-col bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 to-white">
       <Splash />
       <header className="sticky top-0 z-50 flex items-center justify-between px-4 py-3 bg-slate-900 text-white rounded-b-xl shadow">
         <div className="font-semibold">Community Care</div>
-        <button
-          className="inline-flex items-center gap-2 px-2 py-1 rounded bg-white/10"
-          onClick={() =>
-            setLang(lang === "en" ? "hi" : lang === "hi" ? "rg" : "en")
-          }
-          aria-label="Toggle language"
-        >
-          <Languages className="w-4 h-4" /> {lang.toUpperCase()}
-        </button>
+        <div className="relative">
+          <button
+            className="inline-flex items-center gap-2 px-2 py-1 rounded bg-white/10"
+            onClick={() => setOpen((o) => !o)}
+            aria-haspopup="menu"
+            aria-expanded={open}
+            aria-label="Change language"
+          >
+            <Languages className="w-4 h-4" /> {lang.toUpperCase()}
+            <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : "rotate-0"}`} />
+          </button>
+          {open && (
+            <div className="absolute right-0 mt-2 w-36 bg-white text-slate-800 rounded-lg shadow-lg border border-gray-200 overflow-hidden z-10">
+              {["en","hi","rg"].map((code) => (
+                <button
+                  key={code}
+                  className={`w-full text-left px-3 py-2 text-sm hover:bg-blue-50 ${lang === code ? "font-semibold" : ""}`}
+                  onClick={() => {
+                    setLang(code as any);
+                    setLangLocal(code as any);
+                    setOpen(false);
+                  }}
+                >
+                  {code.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </header>
       <main className="flex-1 p-3">
         <Outlet />
