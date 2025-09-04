@@ -33,7 +33,7 @@ export default function Login() {
               </AvatarFallback>
             </Avatar>
           </div>
-          <h1 className="text-lg font-medium text-gray-700 mb-2">Health Surveillance</h1>
+          <h1 className="text-lg font-medium text-gray-700 mb-2">SwasthyaSetu</h1>
           <h2 className="text-2xl font-bold text-gray-900 tracking-wide">DISTRICT OFFICER LOGIN</h2>
         </div>
 
