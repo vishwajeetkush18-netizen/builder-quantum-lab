@@ -54,8 +54,12 @@ function Splash() {
       <div
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
-        <div className="px-8 py-6 rounded-2xl bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg">
-          <div className={`mx-auto flex items-center justify-center gap-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}>
+        <div className="rounded-full bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg flex flex-col items-center justify-center"
+          style={{ width: "min(78vw, 300px)", height: "min(78vw, 300px)" }}
+        >
+          <div className={`mx-auto flex items-center justify-center gap-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
+            style={{ maxWidth: "85%", textAlign: "center" }}
+          >
             <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 flex items-center justify-center shadow-sm">
               <Shield className="w-5 h-5 text-white" />
             </div>
@@ -66,7 +70,7 @@ function Splash() {
               >
                 SwasthyaSetu
               </div>
-              <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} />
+              <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} style={{ marginTop: 4 }} />
             </div>
           </div>
           <div
