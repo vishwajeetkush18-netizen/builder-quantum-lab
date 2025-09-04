@@ -13,10 +13,10 @@ function Splash() {
     if (seen) return;
     const t1 = setTimeout(() => setLogoIn(true), 10); // slide-in start
     const t2 = setTimeout(() => setTextIn(true), 10); // fade-in text
-    const t3 = setTimeout(() => setFadeOut(true), 2000); // longer hold
+    const t3 = setTimeout(() => setFadeOut(true), 3500); // hold ~3.5s before fade
     const t4 = setTimeout(() => {
       if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
-    }, 2700); // slower fade-out end
+    }, 4200); // fade completes ~0.7s later (~4.2s total)
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
