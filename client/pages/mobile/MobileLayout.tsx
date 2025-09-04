@@ -29,15 +29,19 @@ function Splash() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 backdrop-blur-sm ${fadeOut ? "opacity-0" : "opacity-100"}`}
       style={{
-        background: "linear-gradient(135deg, rgba(15,157,88,0.55), rgba(15,157,88,0.35))",
+        background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95))",
       }}
       aria-label="App splash screen"
     >
+      {/* Background animated orbs */}
+      <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute -bottom-12 -right-12 w-56 h-56 bg-sky-200/30 rounded-full blur-3xl animate-pulse" />
+
       {/* Top-left logo badge */}
       <div
-        className={`absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-400 ease-in-out ${logoIn ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-3 -translate-y-3 opacity-0"}`}
+        className={`absolute top-4 left-4 w-9 h-9 rounded-full bg-white/70 flex items-center justify-center text-slate-700 backdrop-blur-sm border border-gray-200 shadow-sm transition-all duration-400 ease-in-out ${logoIn ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-3 -translate-y-3 opacity-0"}`}
       >
         <Shield className="w-5 h-5" />
       </div>
@@ -46,15 +50,15 @@ function Splash() {
       <div
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
-        <div className="px-8 py-6 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 shadow-lg">
+        <div className="px-8 py-6 rounded-2xl bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg">
           <div
-            className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
+            className={`text-gray-900 font-semibold tracking-wide transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
             style={{ fontSize: "36px", lineHeight: 1.1 }}
           >
             SwasthyaSetu
           </div>
           <div
-            className={`text-white/90 mt-2 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
+            className={`text-gray-600 mt-2 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
             style={{ fontSize: "14px" }}
           >
             Connecting Health & Community
