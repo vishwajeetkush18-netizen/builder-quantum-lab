@@ -41,7 +41,7 @@ export default function MobileNav() {
         <div className="flex items-center gap-2 px-6 py-4 border-b">
           <InteractiveLogo />
           <span className="text-lg font-semibold text-gray-900">
-            Health Surveillance
+            SwasthyaSetu
           </span>
         </div>
         <nav className="px-2 py-4">
