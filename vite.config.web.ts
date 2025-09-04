@@ -26,8 +26,8 @@ export default defineConfig(({ mode }) => ({
       injectRegister: "auto",
       includeAssets: ["robots.txt", "placeholder.svg"],
       manifest: {
-        name: "Health Surveillance",
-        short_name: "Health",
+        name: "SwasthyaSetu",
+        short_name: "SwasthyaSetu",
         description: "Monitor dashboards, reports, alerts, and AI risk.",
         theme_color: "#0f172a",
         background_color: "#ffffff",
