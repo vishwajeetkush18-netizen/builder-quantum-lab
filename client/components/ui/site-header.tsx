@@ -30,7 +30,7 @@ export default function SiteHeader() {
         <div className="flex items-center space-x-2">
           <InteractiveLogo />
           <span className="text-lg font-semibold text-gray-900">
-            Health Surveillance
+            SwasthyaSetu
           </span>
         </div>
         <nav className="hidden sm:flex flex-1 items-center justify-center space-x-8">
