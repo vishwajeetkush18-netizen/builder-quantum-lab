@@ -6,7 +6,7 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-7xl px-6 py-12 text-sm text-gray-600 grid grid-cols-1 md:grid-cols-4 gap-10">
         <div>
           <div className="text-xl font-semibold text-gray-900">
-            Health Surveillance
+            SwasthyaSetu
           </div>
           <p className="mt-3 leading-6">
             AI-assisted monitoring for outbreaks, water quality, and village
@@ -108,7 +108,7 @@ export default function SiteFooter() {
       </div>
       <div className="border-t border-gray-200">
         <div className="mx-auto max-w-7xl px-6 py-6 text-xs text-gray-500 flex flex-col md:flex-row items-center justify-between">
-          <div>© 2025 Health Surveillance. All rights reserved.</div>
+          <div>© 2025 SwasthyaSetu. All rights reserved.</div>
           <div className="flex items-center gap-6 mt-3 md:mt-0">
             <a className="hover:text-blue-600 transition-colors" href="#">
               Privacy
