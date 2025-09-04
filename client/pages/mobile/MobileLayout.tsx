@@ -13,10 +13,10 @@ function Splash() {
     if (seen) return;
     const t1 = setTimeout(() => setLogoIn(true), 10); // slide-in start
     const t2 = setTimeout(() => setTextIn(true), 10); // fade-in text
-    const t3 = setTimeout(() => setFadeOut(true), 1300); // hold ~1000ms after 300ms in
+    const t3 = setTimeout(() => setFadeOut(true), 2000); // longer hold
     const t4 = setTimeout(() => {
       if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
-    }, 1800);
+    }, 2700); // slower fade-out end
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -29,7 +29,7 @@ function Splash() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"}`}
       style={{
         background: "linear-gradient(135deg, rgba(15,157,88,0.55), rgba(15,157,88,0.35))",
       }}
@@ -37,24 +37,24 @@ function Splash() {
     >
       {/* Top-left logo badge */}
       <div
-        className={`absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-300 ease-in-out ${logoIn ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-3 -translate-y-3 opacity-0"}`}
+        className={`absolute top-4 left-4 w-9 h-9 rounded-full bg-white/15 flex items-center justify-center text-white backdrop-blur-sm border border-white/20 shadow-sm transition-all duration-400 ease-in-out ${logoIn ? "translate-x-0 translate-y-0 opacity-100" : "-translate-x-3 -translate-y-3 opacity-0"}`}
       >
         <Shield className="w-5 h-5" />
       </div>
 
       {/* Center glass panel with title + tagline */}
       <div
-        className={`text-center select-none transform transition-all duration-500 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
+        className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
         <div className="px-8 py-6 rounded-2xl bg-white/15 backdrop-blur-xl border border-white/20 shadow-lg">
           <div
-            className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
+            className={`text-white font-semibold tracking-wide drop-shadow-md transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
             style={{ fontSize: "36px", lineHeight: 1.1 }}
           >
             SwasthyaSetu
           </div>
           <div
-            className={`text-white/90 mt-2 transition-opacity duration-300 ${textIn ? "opacity-100" : "opacity-0"}`}
+            className={`text-white/90 mt-2 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
             style={{ fontSize: "14px" }}
           >
             Connecting Health & Community
