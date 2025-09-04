@@ -29,7 +29,7 @@ function Splash() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 backdrop-blur-sm ${fadeOut ? "opacity-0" : "opacity-100"}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"}`}
       style={{
         background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95))",
       }}
@@ -40,8 +40,8 @@ function Splash() {
       }}
     >
       {/* Background animated orbs */}
-      <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute -bottom-12 -right-12 w-56 h-56 bg-sky-200/30 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-200/30 rounded-full animate-pulse" />
+      <div className="absolute -bottom-12 -right-12 w-56 h-56 bg-sky-200/30 rounded-full animate-pulse" />
 
       {/* Top-left logo badge */}
       <div
@@ -54,12 +54,12 @@ function Splash() {
       <div
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
-        <div className="relative rounded-full bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg flex items-center justify-center"
+        <div className="relative rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center"
           style={{ width: "min(78vw, 300px)", height: "min(78vw, 300px)" }}
         >
           {/* Neon gradient border glow */}
-          <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 blur-lg opacity-60 animate-pulse" />
-          <span className="absolute inset-0 rounded-full ring-1 ring-white/40" />
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 opacity-60 animate-pulse" />
+          <span className="absolute inset-0 rounded-full ring-1 ring-gray-200/60" />
 
           <div className={`relative z-10 mx-auto flex flex-col items-center justify-center px-4 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"} active:scale-95`} style={{ textAlign: "center" }}>
             <div
