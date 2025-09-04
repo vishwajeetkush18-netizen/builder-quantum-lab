@@ -34,6 +34,10 @@ function Splash() {
         background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95))",
       }}
       aria-label="App splash screen"
+      onClick={() => {
+        setFadeOut(true);
+        if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
+      }}
     >
       {/* Background animated orbs */}
       <div className="absolute -top-10 -left-10 w-48 h-48 bg-blue-200/30 rounded-full blur-3xl animate-pulse" />
@@ -51,14 +55,22 @@ function Splash() {
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
         <div className="px-8 py-6 rounded-2xl bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg">
-          <div
-            className={`text-gray-900 font-semibold tracking-wide transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
-            style={{ fontSize: "36px", lineHeight: 1.1 }}
-          >
-            SwasthyaSetu
+          <div className={`mx-auto flex items-center justify-center gap-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}>
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 flex items-center justify-center shadow-sm">
+              <Shield className="w-5 h-5 text-white" />
+            </div>
+            <div className="leading-none">
+              <div
+                className="bg-gradient-to-r from-blue-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent font-semibold tracking-wide"
+                style={{ fontSize: "36px" }}
+              >
+                SwasthyaSetu
+              </div>
+              <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} />
+            </div>
           </div>
           <div
-            className={`text-gray-600 mt-2 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
+            className={`text-gray-600 mt-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
             style={{ fontSize: "14px" }}
           >
             Connecting Health & Community
