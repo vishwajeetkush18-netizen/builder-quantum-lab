@@ -54,30 +54,24 @@ function Splash() {
       <div
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
-        <div className="rounded-full bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg flex flex-col items-center justify-center"
+        <div className="relative rounded-full bg-white/70 backdrop-blur-xl border border-gray-200 shadow-lg flex items-center justify-center"
           style={{ width: "min(78vw, 300px)", height: "min(78vw, 300px)" }}
         >
-          <div className={`mx-auto flex items-center justify-center gap-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
-            style={{ maxWidth: "85%", textAlign: "center" }}
-          >
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 flex items-center justify-center shadow-sm">
-              <Shield className="w-5 h-5 text-white" />
+          {/* Neon gradient border glow */}
+          <span className="absolute -inset-1 rounded-full bg-gradient-to-tr from-blue-500 via-cyan-400 to-violet-500 blur-lg opacity-60 animate-pulse" />
+          <span className="absolute inset-0 rounded-full ring-1 ring-white/40" />
+
+          <div className={`relative z-10 mx-auto flex flex-col items-center justify-center px-4 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"} active:scale-95`} style={{ textAlign: "center" }}>
+            <div
+              className="bg-gradient-to-r from-blue-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent font-semibold tracking-wide"
+              style={{ fontSize: "36px", lineHeight: 1.1 }}
+            >
+              SwasthyaSetu
             </div>
-            <div className="leading-none">
-              <div
-                className="bg-gradient-to-r from-blue-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent font-semibold tracking-wide"
-                style={{ fontSize: "36px" }}
-              >
-                SwasthyaSetu
-              </div>
-              <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} style={{ marginTop: 4 }} />
+            <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} style={{ marginTop: 4 }} />
+            <div className="text-gray-600 mt-3" style={{ fontSize: "14px" }}>
+              Connecting Health & Community
             </div>
-          </div>
-          <div
-            className={`text-gray-600 mt-3 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"}`}
-            style={{ fontSize: "14px" }}
-          >
-            Connecting Health & Community
           </div>
         </div>
       </div>
