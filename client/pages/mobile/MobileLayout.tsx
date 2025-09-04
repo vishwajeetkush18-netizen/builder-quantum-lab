@@ -9,12 +9,14 @@ function Splash() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const seen = sessionStorage.getItem("splash_seen");
+    const seen = typeof window !== "undefined" && sessionStorage.getItem("splash_seen");
     if (seen) return;
     const t1 = setTimeout(() => setLogoIn(true), 10); // slide-in start
     const t2 = setTimeout(() => setTextIn(true), 10); // fade-in text
     const t3 = setTimeout(() => setFadeOut(true), 1300); // hold ~1000ms after 300ms in
-    const t4 = setTimeout(() => sessionStorage.setItem("splash_seen", "1"), 1800);
+    const t4 = setTimeout(() => {
+      if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
+    }, 1800);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -23,7 +25,7 @@ function Splash() {
     };
   }, []);
 
-  if (sessionStorage.getItem("splash_seen")) return null;
+  if (typeof window !== "undefined" && sessionStorage.getItem("splash_seen")) return null;
 
   return (
     <div
