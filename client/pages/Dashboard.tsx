@@ -5,6 +5,117 @@ import KPIStat from "@/components/ui/kpi-card";
 import SiteFooter from "@/components/ui/site-footer";
 import SiteHeader from "@/components/ui/site-header";
 
+function MapSVG({
+  villages,
+  riskColor,
+}: {
+  villages: ReadonlyArray<{
+    name: string;
+    x: number;
+    y: number;
+    risk: "safe" | "warn" | "danger";
+    cases: number;
+    water: string;
+    alerts: number;
+  }>;
+  riskColor: (r: string) => string;
+}) {
+  const [hover, setHover] = useState<(typeof villages)[number] | null>(null);
+  return (
+    <div className="relative h-80 bg-gradient-to-br from-white to-gray-100 rounded-xl overflow-hidden border border-gray-200">
+      <svg viewBox="0 0 400 300" className="w-full h-full">
+        <defs>
+          <radialGradient id="landGrad" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stopColor="#a7f3d0" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#34d399" stopOpacity="0.15" />
+          </radialGradient>
+          <linearGradient id="riverGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#93c5fd" />
+            <stop offset="100%" stopColor="#60a5fa" />
+          </linearGradient>
+        </defs>
+
+        {/* Landmass */}
+        <path
+          d="M40 60 Q160 20 290 50 Q360 70 360 150 Q340 250 210 285 Q90 260 40 150 Z"
+          fill="url(#landGrad)"
+          stroke="#86efac"
+          strokeOpacity="0.4"
+        />
+
+        {/* Secondary elevation */}
+        <path
+          d="M90 90 Q180 70 300 95 Q330 130 300 210 Q250 245 150 235 Q100 200 95 130 Z"
+          fill="#bbf7d0"
+          opacity="0.18"
+        />
+
+        {/* River */}
+        <path
+          d="M20 120 C 80 140, 140 130, 200 160 C 260 190, 300 170, 360 200"
+          fill="none"
+          stroke="url(#riverGrad)"
+          strokeWidth="6"
+          strokeOpacity="0.55"
+        />
+        {/* Lake */}
+        <ellipse cx="250" cy="210" rx="18" ry="10" fill="#93c5fd" opacity="0.5" />
+
+        {/* Roads */}
+        <path
+          d="M60 70 L 340 250"
+          fill="none"
+          stroke="#9CA3AF"
+          strokeDasharray="4 6"
+          strokeOpacity="0.6"
+        />
+        <path
+          d="M80 230 L 300 120"
+          fill="none"
+          stroke="#9CA3AF"
+          strokeDasharray="3 5"
+          strokeOpacity="0.6"
+        />
+
+        {/* Villages */}
+        {villages.map((v) => (
+          <g
+            key={v.name}
+            onMouseEnter={() => setHover(v)}
+            onMouseLeave={() => setHover(null)}
+            style={{ cursor: "pointer" }}
+          >
+            <circle cx={v.x} cy={v.y} r={5.5} fill={riskColor(v.risk)} stroke="#fff" strokeWidth={1.5} />
+            <circle cx={v.x} cy={v.y} r={8} fill="none" stroke={riskColor(v.risk)} strokeOpacity={0.2} />
+            <title>
+              {`${v.name} • Cases: ${v.cases} • Water: ${v.water} • Alerts: ${v.alerts}`}
+            </title>
+            <text x={v.x + 10} y={v.y + 4} fontSize={10} fill="#374151">
+              {v.name}
+            </text>
+          </g>
+        ))}
+      </svg>
+
+      {hover && (
+        <div
+          className="absolute glass-bright rounded-lg p-3 text-sm z-10 border border-gray-200"
+          style={{
+            left: `${(hover.x / 400) * 100}%`,
+            top: `${(hover.y / 300) * 100}%`,
+            transform: "translate(8px, -50%)",
+          }}
+        >
+          <div className="font-semibold text-gray-900">Village: {hover.name}</div>
+          <div className="text-gray-600">Cases: {hover.cases}</div>
+          <div className="text-gray-600">Water Results: {hover.water}</div>
+          <div className="text-gray-600">Alerts: {hover.alerts}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Dashboard() {
   const [activeIcon, setActiveIcon] = useState<string | null>(null);
   const [activeSegment, setActiveSegment] = useState<
