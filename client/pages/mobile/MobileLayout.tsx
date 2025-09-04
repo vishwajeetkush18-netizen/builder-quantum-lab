@@ -1,6 +1,14 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Bell, ClipboardList, Droplets, Home, Languages, Shield, ChevronDown } from "lucide-react";
+import {
+  Bell,
+  ClipboardList,
+  Droplets,
+  Home,
+  Languages,
+  Shield,
+  ChevronDown,
+} from "lucide-react";
 import { t, setLang, getLang } from "@/lib/i18n";
 
 function Splash() {
@@ -9,13 +17,15 @@ function Splash() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    const seen = typeof window !== "undefined" && sessionStorage.getItem("splash_seen");
+    const seen =
+      typeof window !== "undefined" && sessionStorage.getItem("splash_seen");
     if (seen) return;
     const t1 = setTimeout(() => setLogoIn(true), 10); // slide-in start
     const t2 = setTimeout(() => setTextIn(true), 10); // fade-in text
     const t3 = setTimeout(() => setFadeOut(true), 3500); // hold ~3.5s before fade
     const t4 = setTimeout(() => {
-      if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
+      if (typeof window !== "undefined")
+        sessionStorage.setItem("splash_seen", "1");
     }, 4200); // fade completes ~0.7s later (~4.2s total)
     return () => {
       clearTimeout(t1);
@@ -25,18 +35,21 @@ function Splash() {
     };
   }, []);
 
-  if (typeof window !== "undefined" && sessionStorage.getItem("splash_seen")) return null;
+  if (typeof window !== "undefined" && sessionStorage.getItem("splash_seen"))
+    return null;
 
   return (
     <div
       className={`fixed inset-0 z-[100] flex items-center justify-center transition-opacity duration-700 ${fadeOut ? "opacity-0" : "opacity-100"}`}
       style={{
-        background: "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95))",
+        background:
+          "linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,250,252,0.95))",
       }}
       aria-label="App splash screen"
       onClick={() => {
         setFadeOut(true);
-        if (typeof window !== "undefined") sessionStorage.setItem("splash_seen", "1");
+        if (typeof window !== "undefined")
+          sessionStorage.setItem("splash_seen", "1");
       }}
     >
       {/* Background animated orbs */}
@@ -54,19 +67,26 @@ function Splash() {
       <div
         className={`text-center select-none transform transition-all duration-700 ease-in-out ${fadeOut ? "opacity-0 scale-90" : "opacity-100 scale-100"}`}
       >
-        <div className="relative rounded-full bg-transparent border-2 border-white shadow-lg flex items-center justify-center"
+        <div
+          className="relative rounded-full bg-transparent border-2 border-white shadow-lg flex items-center justify-center"
           style={{ width: "min(78vw, 300px)", height: "min(78vw, 300px)" }}
         >
           {/* Neon gradient border glow */}
 
-          <div className={`relative z-10 mx-auto flex flex-col items-center justify-center px-4 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"} active:scale-95`} style={{ textAlign: "center" }}>
+          <div
+            className={`relative z-10 mx-auto flex flex-col items-center justify-center px-4 transition-opacity duration-400 ${textIn ? "opacity-100" : "opacity-0"} active:scale-95`}
+            style={{ textAlign: "center" }}
+          >
             <div
               className="bg-gradient-to-r from-blue-600 via-cyan-600 to-violet-600 bg-clip-text text-transparent font-semibold tracking-wide"
               style={{ fontSize: "36px", lineHeight: 1.1 }}
             >
               SwasthyaSetu
             </div>
-            <div className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`} style={{ marginTop: 4 }} />
+            <div
+              className={`h-0.5 bg-gradient-to-r from-blue-500 via-cyan-400 to-violet-500 rounded-full transition-all ${textIn ? "w-full" : "w-0"}`}
+              style={{ marginTop: 4 }}
+            />
             <div className="text-gray-600 mt-3" style={{ fontSize: "14px" }}>
               Connecting Health & Community
             </div>
@@ -95,11 +115,13 @@ export default function MobileLayout() {
             aria-label="Change language"
           >
             <Languages className="w-4 h-4" /> {lang.toUpperCase()}
-            <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : "rotate-0"}`} />
+            <ChevronDown
+              className={`w-4 h-4 transition-transform ${open ? "rotate-180" : "rotate-0"}`}
+            />
           </button>
           {open && (
             <div className="absolute right-0 mt-2 w-36 bg-white text-slate-800 rounded-lg shadow-lg border border-gray-200 overflow-hidden z-10">
-              {["en","hi","rg"].map((code) => (
+              {["en", "hi", "rg"].map((code) => (
                 <button
                   key={code}
                   className={`w-full text-left px-3 py-2 text-sm hover:bg-blue-50 ${lang === code ? "font-semibold" : ""}`}
