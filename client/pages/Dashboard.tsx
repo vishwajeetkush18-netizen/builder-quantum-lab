@@ -197,7 +197,6 @@ export default function Dashboard() {
       });
     }, observerOptions);
 
-    // Observe all scroll-reveal elements
     const elements = document.querySelectorAll(
       ".scroll-reveal, .scroll-reveal-fade, .scroll-reveal-slide-left, .scroll-reveal-slide-right, .scroll-reveal-scale",
     );
@@ -205,10 +204,13 @@ export default function Dashboard() {
       observer.observe(element);
     });
 
-    fetch("/api/stats")
-      .then((r) => r.json())
-      .then(setStats)
-      .catch(() => {});
+    const load = () =>
+      fetch("/api/stats")
+        .then((r) => r.json())
+        .then(setStats)
+        .catch(() => {});
+
+    load();
 
     return () => {
       elements.forEach((element) => {
